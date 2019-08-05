@@ -1,0 +1,63 @@
+// file: header.cscss
+
+// This holds all the data for the header.
+
+.header {
+    display: flex;
+
+    .home & {
+        & .logo-wrapper {
+            
+            & .custom-logo {
+                max-width: 250px;
+            }
+
+            &.floater {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+
+                & .custom-logo {
+                    width: 25vw;
+                }
+
+            }
+
+            &:not(.floater) {
+                display: flex;
+                
+                & figcaption {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin-left: 0.5rem;
+                    padding-left: 0.5rem;
+                    border-left: 1px solid theme('colors.black.light');
+                }
+            }
+
+        }
+
+    }
+
+    &.floater {
+        position: fixed;
+        width: 100%;;
+        top: 0;
+        z-index: 40;
+        @include shadow;
+
+        .admin-bar & {
+            top: 32px;
+        }
+        background: map-deep-get($colors, 'white', 'default');
+
+    }
+
+    & .container {
+        display: flex;
+        padding: 0.5rem 0;
+    }
+}

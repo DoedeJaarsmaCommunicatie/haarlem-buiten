@@ -1,3 +1,4 @@
+import '@fortawesome/fontawesome-free/js/all';
 import jQuery from 'jquery';
 
 import Router from './tools/Router';

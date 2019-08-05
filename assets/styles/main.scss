@@ -2,4 +2,9 @@
 
 @tailwind components;
 
+@import "_abstracts/all";
+@import "_base/all";
+@import "_components/all";
+@import "_layout/all";
+
 @tailwind utilities;

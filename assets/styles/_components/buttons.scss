@@ -1,0 +1,60 @@
+.btn {
+    @each $name, $map in $colors {
+        &.#{$name} {
+            color: theme('colors.white.default');
+            background: map-deep-get($colors, $name, 'default');
+    
+            &:not(.no-border) {
+                border-color: map-deep-get($colors, $name, 700);
+            }  
+
+            &:not(.no-animation):not(.no-border) {
+                &:hover {
+                    border-bottom-width: 0;
+                    border-top-style: solid;
+                    border-top-width: 5px;
+                }
+
+                @include transition;
+            }
+        }
+    }
+
+    &:not(.no-border) {
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+    }
+
+    &:not(.no-uppercase) {
+        text-transform: uppercase;
+    }
+
+    padding: 0.5rem;
+
+    &.equalize {
+        height: 60px;
+
+        &.sm {
+            height: 30px;
+        }
+
+        &.md {
+            height: 45px;
+        }
+    }
+
+    cursor: pointer;
+
+
+    &:not(.no-animation) {
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+
+    @media screen and (max-width: 414px) {
+        display: block;
+        text-align: center;
+    }
+}

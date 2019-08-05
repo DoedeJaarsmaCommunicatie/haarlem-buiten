@@ -1,7 +1,19 @@
-<header>
-    <button data-action="nav-handler" data-event="click" data-target=".targetElement">
-        test
-    </button>
+{% set _logo = Image(theme.theme_mod('custom_logo')) %}
+<header class="header">
+    <div class="container mx-auto">
+        <figure class="logo-wrapper floater">
+            <img src="{{ _logo.src }}" alt="{{ _logo.alt }}" class="custom-logo" />
+            <figcaption>
+                <span class="site-description subtitle">
+                    {{ fn('get_bloginfo', 'description', 'display') }}
+                </span>
+            </figcaption>
+        </figure>
 
-    <span class="targetElement">target</span>
+        <button class="ml-auto" data-action="nav-handler" data-event="click" data-target=".navMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <span class="navMenu">target</span>
+    </div>
 </header>

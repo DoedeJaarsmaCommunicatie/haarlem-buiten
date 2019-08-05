@@ -1,0 +1,43 @@
+$primary: (
+    500: theme('colors.primary.default'),
+    700: theme('colors.primary.700')
+);
+$secondary: (
+    500: theme('colors.secondary.default'),
+    700: theme('colors.secondary.700')
+);
+$tertiary: (
+    500: theme('colors.tertiary.default'),
+    700: theme('colors.tertiary.700')
+);
+$quaternary: (
+    500: theme('colors.quaternary.default'),
+    700: theme('colors.quaternary.700')
+);
+
+$colors: (
+    "primary": (
+        default: map-get($primary, 500),
+        500: map-get($primary, 500),
+        700: map-get($primary, 700)
+    ),
+    "secondary": (
+        default: map-get($secondary, 500),
+        500: map-get($secondary, 500),
+        700: map-get($secondary, 700),
+    ),
+    "tertiary": (
+        default: map-get($tertiary, 500),
+        500: map-get($tertiary, 500),
+        700: map-get($tertiary, 700),
+    ),
+    "quaternary": (
+        default: map-get($quaternary, 500),
+        500: map-get($quaternary, 500),
+        700: map-get($quaternary, 700),
+    ),
+    "white": (
+        default: theme('colors.white.default'),
+        500: theme('colors.white.default')
+    )
+);
