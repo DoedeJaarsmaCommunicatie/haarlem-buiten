@@ -1,0 +1,36 @@
+{% for item in primaryMenu.items %}
+    <div class="navMenu-wrapper">
+        <a 
+            href="{{ item.link }}" 
+            title="{{ item.title }}" 
+            target="{{ item.target ? item.target : '_self' }}"
+            class="navMenu-item {{ item.classes|join(' ') }}"
+        >
+            {{ item.name }}
+
+            {% if item.children %}
+                <span class="ml-4 text-grey absolute">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            {% endif %}
+            
+        </a>
+
+        {% if item.children %}
+            <ul class="navMenu-submenu">
+                {% for child in item.children %}
+                    <li>
+                        <a 
+                            href="{{ child.link }}"
+                            class="submenu-item {{ child.classes|join(' ') }}"
+                            title="{{ child.title }}"
+                            target="{{ child.target ? child.target : '_self' }}"
+                        >
+                            {{ child.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endfor %}

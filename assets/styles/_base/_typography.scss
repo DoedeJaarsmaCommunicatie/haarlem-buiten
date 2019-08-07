@@ -1,0 +1,13 @@
+html p {
+    font-family: map-get($default-font, 'family');
+    font-weight: map-get($default-font, 'weight');
+    font-style: map-get($default-font, 'style');
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-family: map-get($title-font, 'family');
+        font-weight: map-get($title-font, 'weight');
+        font-style: map-get($title-font, 'style');
+    }
+}

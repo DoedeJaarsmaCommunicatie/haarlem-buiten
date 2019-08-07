@@ -39,5 +39,47 @@ $colors: (
     "white": (
         default: theme('colors.white.default'),
         500: theme('colors.white.default')
+    ),
+    "black": (
+        default: theme('colors.black.default'),
+        light: theme('colors.black.light')
+    ),
+    "grey": (
+        default: theme('colors.grey.default'),
+    )
+);
+
+// fonts
+$default-font-weight: 400 !default;
+$default-font-style: normal !default;
+
+$default-font: (
+    family: 'Source Sans Pro',
+    weight: $default-font-weight,
+    style: normal
+);
+
+$title-font: (
+    family: 'Georgia',
+    weight: $default-font-weight,
+    style: italic
+);
+
+
+// Navmenu
+$skew-degrees: -15deg;
+
+$menu-font: (
+    family: 'Poppins',
+    weight: 700,
+    style: $default-font-style,
+    size: 20px,
+    transform: uppercase
+);
+
+$submenu-font: map-merge(
+    $menu-font,
+    (
+        weight: $default-font-weight,
     )
 );

@@ -2,7 +2,9 @@
 <header class="header">
     <div class="container mx-auto">
         <figure class="logo-wrapper floater">
-            <img src="{{ _logo.src }}" alt="{{ _logo.alt }}" class="custom-logo" />
+            <a href="{{ site.link }}">
+                <img src="{{ _logo.src }}" alt="{{ _logo.alt }}" class="custom-logo" />
+            </a>
             <figcaption>
                 <span class="site-description subtitle">
                     {{ fn('get_bloginfo', 'description', 'display') }}
@@ -10,10 +12,17 @@
             </figcaption>
         </figure>
 
-        <button class="ml-auto" data-action="nav-handler" data-event="click" data-target=".navMenu">
-            <i class="fas fa-bars"></i>
-        </button>
+        <aside class="m-auto mr-0 relative flex">
+            <button data-action="nav-handler" data-event="click" data-target=".navMenu">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <span class="navMenu">target</span>
+            <nav class="navMenu">
+                <button class="ml-auto block" data-action="nav-handler" data-event="click" data-target=".navMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                {% include 'layouts/helpers/navigation.twig' %}
+            </nav>
+        </aside>
     </div>
 </header>

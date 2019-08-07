@@ -1,11 +1,79 @@
 .navMenu {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1rem;
+    right: -1rem;
+    min-width: 300px;
+    z-index: 10;
+
     transform: scale(0);
+    transform-origin: top right;
+    background: map-deep-get($colors, 'white', 'default');
+    border: 1px solid map-deep-get($colors, 'black', 'light');
+    padding: 1rem;
+    @include shadow;
     @include transition;
 
     &.active {
         transform: scale(1);
+    }
+
+    & .navMenu-wrapper {
+        margin-bottom: 1.5rem;
+
+        & .navMenu-submenu {
+            padding-left: 2rem;
+            margin-top: 1rem;
+            & .submenu-item {
+                font-family: map-get($submenu-font, 'family');
+                font-weight: map-get($submenu-font, 'weight');
+                font-size: map-get($submenu-font, 'weight');
+                text-transform: map-get($submenu-font, 'transform');
+
+                display: block;
+                color: map-deep-get($colors, 'grey', 'default');
+        
+                @include transition;
+        
+                &:hover {
+                    transform: skew($skew-degrees);
+                }
+            }
+        }
+    }
+
+    & .navMenu-item {
+        font-family: map-get($menu-font, 'family');
+        font-weight: map-get($menu-font, 'weight');
+        font-size: map-get($menu-font, 'size');
+        text-transform: map-get($menu-font, 'transform');
+        color: map-deep-get($colors, 'black', 'default');
+        display: inline-block;
+
+        position: relative;
+
+        @include transition;
+
+        &.current-menu-item {
+            border-bottom: 3px solid map-deep-get($colors, 'black', 'default');
+        }
+
+        &:hover {
+            transform: skew($skew-degrees);
+        }
+
+        & span {
+            top: 0;
+            right: -3rem;
+        }
+    }
+}
+
+@media screen and (max-width: 516px) {
+    .navMenu {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }

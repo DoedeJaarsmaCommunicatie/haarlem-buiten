@@ -5,6 +5,10 @@
 .header {
     display: flex;
 
+    @media screen and (max-width: 414px) {
+        padding: 0 1rem;
+    }
+
     .home & {
         & .logo-wrapper {
             
@@ -19,13 +23,19 @@
                 transform: translate(-50%, -50%);
                 z-index: 1;
 
-                & .custom-logo {
-                    width: 25vw;
+                & .subtitle {
+                    @media screen and (min-width: 768px) {
+                        font-size: 57px;
+                        bottom: -20vh;
+                    }
+                    position: absolute;
+                    width: max-content;
+                    transform: translateX(-50%);
+                    left: 50%;
                 }
-
             }
 
-            &:not(.floater) {
+            &:not(.floater), &.moving {
                 display: flex;
                 
                 & figcaption {
@@ -35,29 +45,89 @@
                     margin-left: 0.5rem;
                     padding-left: 0.5rem;
                     border-left: 1px solid theme('colors.black.light');
+
+                    @media screen and (max-width: 414px) {
+                        display: none;
+                    }
+
+                    &.subtitle {
+                        font-size: 1rem;
+                        position: unset;
+                    }
                 }
             }
-
         }
-
     }
 
+    min-height: 110px;
+
     &.floater {
-        position: fixed;
+        position: sticky;
         width: 100%;;
         top: 0;
         z-index: 40;
+
         @include shadow;
-
-        .admin-bar & {
-            top: 32px;
-        }
         background: map-deep-get($colors, 'white', 'default');
+    
+        @media screen and (min-width: 414px) {
+            .admin-bar & {
+                top: 32px;
+            }
+        }
 
+        @include transition;
     }
 
     & .container {
         display: flex;
         padding: 0.5rem 0;
+    }
+
+    & .subtitle {
+        font-family: map-get($title-font, 'family');
+        font-style: map-get($title-font, 'style');
+    }
+
+    body:not(.home) & {
+        position: sticky;
+        width: 100%;;
+        top: 0;
+        z-index: 40;
+        
+        @include shadow;
+
+        background: map-deep-get($colors, 'white', 'default');
+        @media screen and (min-width: 414px) {
+            .admin-bar & {
+                top: 32px;
+            }
+        }
+
+        & .logo-wrapper {
+            display: flex;
+
+            & .custom-logo {
+                max-width: 250px;
+            }
+                
+            & figcaption {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                margin-left: 0.5rem;
+                padding-left: 0.5rem;
+                border-left: 1px solid theme('colors.black.light');
+
+                @media screen and (max-width: 414px) {
+                    display: none;
+                }
+
+                &.subtitle {
+                    font-size: 1rem;
+                    position: unset;
+                }
+            }
+        }
     }
 }

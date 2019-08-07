@@ -56,5 +56,36 @@
     @media screen and (max-width: 414px) {
         display: block;
         text-align: center;
+
+        &.inline-block {
+            display: block;
+        }
     }
+}
+
+#submit-button {
+    color: theme('colors.white.default');
+    background: map-deep-get($colors, 'quaternary', 'default');
+
+    &:not(.no-border) {
+        border-color: map-deep-get($colors, 'quaternary', 700);
+    }  
+
+    &:not(.no-animation):not(.no-border) {
+        &:hover {
+            border-bottom-width: 0;
+            border-top-style: solid;
+            border-top-width: 5px;
+        }
+
+    }
+    @include transition;
+
+    &:not(.no-border) {
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+    }
+
+    border-radius: 0;
+    cursor: pointer;
 }

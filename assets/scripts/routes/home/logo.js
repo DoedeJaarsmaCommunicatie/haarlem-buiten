@@ -17,8 +17,10 @@ const logoHandler = () => {
             position: 'relative',
             onComplete: () => {
                 document.querySelector('.logo-wrapper').classList.remove('floater');
+                document.querySelector('.logo-wrapper').classList.remove('moving');
             },
             onStart: () => {
+                document.querySelector('.logo-wrapper').classList.add('moving');
                 document.querySelector('header').classList.add('floater');
             }
         }

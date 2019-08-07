@@ -14,6 +14,9 @@ module.exports = {
         pure: 'hsl(0, 0%, 100%)',
         broken: 'hsl(0, 0%, 96%)',
       },
+      grey: {
+        default: 'hsla(0, 0%, 65%, 1)',
+      },
       primary: {
         default: 'hsl(194, 26%, 60%)',
         500: 'hsl(194, 26%, 60%)',

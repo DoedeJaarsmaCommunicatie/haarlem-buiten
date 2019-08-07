@@ -52,7 +52,6 @@ const _addEvents = ({element, event, target}) => {
 
         for (let c of bodyClasses) {
             document.body.classList.toggle(c);
-
         }
     });
 

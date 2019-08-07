@@ -298,8 +298,10 @@ var logoHandler = function logoHandler() {
     position: 'relative',
     onComplete: function onComplete() {
       document.querySelector('.logo-wrapper').classList.remove('floater');
+      document.querySelector('.logo-wrapper').classList.remove('moving');
     },
     onStart: function onStart() {
+      document.querySelector('.logo-wrapper').classList.add('moving');
       document.querySelector('header').classList.add('floater');
     }
   });
