@@ -1,7 +1,7 @@
 .btn {
     @each $name, $map in $colors {
         &.#{$name} {
-            color: theme('colors.white.default');
+            color: map-deep-get($colors, 'white', 'default');
             background: map-deep-get($colors, $name, 'default');
     
             &:not(.no-border) {
@@ -10,6 +10,7 @@
 
             &:not(.no-animation):not(.no-border) {
                 &:hover {
+                    color: map-deep-get($colors, 'white', 'default');
                     border-bottom-width: 0;
                     border-top-style: solid;
                     border-top-width: 5px;

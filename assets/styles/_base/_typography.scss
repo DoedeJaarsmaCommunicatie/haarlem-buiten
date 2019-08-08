@@ -11,3 +11,22 @@ html p {
         font-style: map-get($title-font, 'style');
     }
 }
+
+h1,
+h2 {
+    font-size: map-get($title-font, 'size');
+}
+
+a, 
+p a,
+.elementor a{
+    color: $link-color;
+    text-decoration: $link-decoration;
+
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+
+    @include transition;
+}

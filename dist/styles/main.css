@@ -669,6 +669,26 @@ h6 {
   font-style: italic;
 }
 
+h1,
+h2 {
+  font-size: 56px;
+}
+
+a,
+p a,
+.elementor a {
+  color: hsl(194, 26%, 60%);
+  text-decoration: none;
+  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+a:hover,
+p a:hover,
+.elementor a:hover {
+  color: hsla(193, 28%, 41%, 1);
+  text-decoration: none;
+}
+
 .btn {
   padding: 0.5rem;
   cursor: pointer;
@@ -688,6 +708,7 @@ h6 {
 }
 
 .btn.primary:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -707,6 +728,7 @@ h6 {
 }
 
 .btn.secondary:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -726,6 +748,7 @@ h6 {
 }
 
 .btn.tertiary:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -745,6 +768,7 @@ h6 {
 }
 
 .btn.quaternary:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -760,6 +784,7 @@ h6 {
 }
 
 .btn.white:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -775,6 +800,7 @@ h6 {
 }
 
 .btn.black:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;
@@ -790,6 +816,7 @@ h6 {
 }
 
 .btn.grey:not(.no-animation):not(.no-border):hover {
+  color: hsl(0, 0%, 100%);
   border-bottom-width: 0;
   border-top-style: solid;
   border-top-width: 5px;

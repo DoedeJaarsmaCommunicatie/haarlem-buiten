@@ -49,6 +49,13 @@ $colors: (
     )
 );
 
+// Links
+
+$link-color: map-get($primary, 500) !default;
+$link-hover-color: map-get($primary, 700) !default;
+$link-decoration: none !default;
+$link-hover-decoration: none !default;
+
 // fonts
 $default-font-weight: 400 !default;
 $default-font-style: normal !default;
@@ -62,7 +69,8 @@ $default-font: (
 $title-font: (
     family: 'Georgia',
     weight: $default-font-weight,
-    style: italic
+    style: italic,
+    size: 56px
 );
 
 
