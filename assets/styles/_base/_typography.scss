@@ -15,9 +15,13 @@ html p {
 h1,
 h2 {
     font-size: map-get($title-font, 'size');
+
+    @media screen and (max-width: 414px) {
+        font-size: 36px;
+    }
 }
 
-a, 
+a,
 p a,
 .elementor a{
     color: $link-color;

@@ -674,6 +674,13 @@ h2 {
   font-size: 56px;
 }
 
+@media screen and (max-width: 414px) {
+  h1,
+h2 {
+    font-size: 36px;
+  }
+}
+
 a,
 p a,
 .elementor a {
