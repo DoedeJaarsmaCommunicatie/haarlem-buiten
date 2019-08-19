@@ -1,0 +1,19 @@
+.hb {
+
+  &.menu {
+    height: 1.5rem;
+    width: 1.5rem;
+    content: $menu;
+  }
+
+  &.close, &.cross {
+    height: 1rem;
+    width: 1rem;
+    content: $cross;
+  }
+
+  &.chevron {
+    height: 1rem;
+    content: $chevron;
+  }
+}

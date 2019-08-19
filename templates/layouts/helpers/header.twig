@@ -1,7 +1,7 @@
 {% set _logo = Image(theme.theme_mod('custom_logo')) %}
 <header class="header">
     <div class="container mx-auto">
-        <figure class="logo-wrapper floater">
+        <figure class="logo-wrapper">
             <a href="{{ site.link }}">
                 <img src="{{ _logo.src }}" alt="{{ _logo.alt }}" class="custom-logo" />
             </a>
@@ -14,12 +14,12 @@
 
         <aside class="m-auto mr-0 relative flex">
             <button data-action="nav-handler" data-event="click" data-target=".navMenu">
-                <i class="fas fa-bars"></i>
+                <i class="hb menu"></i>
             </button>
 
             <nav class="navMenu">
                 <button class="ml-auto block" data-action="nav-handler" data-event="click" data-target=".navMenu">
-                    <i class="fas fa-times"></i>
+                    <i class="hb close"></i>
                 </button>
                 {% include 'layouts/helpers/navigation.twig' %}
             </nav>

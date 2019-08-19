@@ -18,24 +18,24 @@
     }
 
     & .navMenu-wrapper {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
 
         & .navMenu-submenu {
-            padding-left: 2rem;
-            margin-top: 1rem;
+            padding-left: 1rem;
             & .submenu-item {
                 font-family: map-get($submenu-font, 'family');
                 font-weight: map-get($submenu-font, 'weight');
                 font-size: map-get($submenu-font, 'weight');
-                text-transform: map-get($submenu-font, 'transform');
+                //text-transform: map-get($submenu-font, 'transform');
+                text-transform: none;
 
                 display: block;
                 color: map-deep-get($colors, 'grey', 'default');
-        
+
                 @include transition;
-        
+
                 &:hover {
-                    transform: skew($skew-degrees);
+                    color: map-deep-get($colors, 'primary', 'default');
                 }
             }
         }
@@ -48,22 +48,26 @@
         text-transform: map-get($menu-font, 'transform');
         color: map-deep-get($colors, 'black', 'default');
         display: inline-block;
+        letter-spacing: 3px;
 
         position: relative;
 
         @include transition;
 
         &.current-menu-item {
-            border-bottom: 3px solid map-deep-get($colors, 'black', 'default');
+            //border-bottom: 1px solid map-deep-get($colors, 'black', 'default');
         }
 
         &:hover {
-            transform: skew($skew-degrees);
+            //transform: skew($skew-degrees);
+            color: map-deep-get($colors, 'primary', 'default');
         }
 
         & span {
-            top: 0;
-            right: -3rem;
+            display: none;
+            top: 50%;
+            right: -2rem;
+            transform: translateY(-50%);
         }
     }
 }

@@ -1,4 +1,5 @@
-html p {
+html p,
+.nf-form-layout {
     font-family: map-get($default-font, 'family');
     font-weight: map-get($default-font, 'weight');
     font-style: map-get($default-font, 'style');
@@ -15,9 +16,13 @@ html p {
 h1,
 h2 {
     font-size: map-get($title-font, 'size');
+    .home & {
+        font-size: 56px;
+    }
+
 
     @media screen and (max-width: 414px) {
-        font-size: 36px;
+        font-size: 34px;
     }
 }
 
@@ -33,4 +38,31 @@ p a,
     }
 
     @include transition;
+}
+
+
+ul:not(.navMenu-submenu) {
+    & li:not(.ninja-forms-field) {
+        padding-left: 1rem;
+        margin-left: 1rem;
+        position: relative;
+        &::before {
+            content: '-';
+            color: map-deep-get($colors, 'primary', 700);
+            position: absolute;
+            top: 50%;
+            left: -0.5rem;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.field-wrap {
+    & ul {
+        & li {
+            &::before {
+                content: '' !important;
+            }
+        }
+    }
 }

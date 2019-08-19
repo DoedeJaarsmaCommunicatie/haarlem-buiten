@@ -10,6 +10,6 @@ const routes = new Router({
     home
 });
 
-window['routes'] = routes;
+window.routes = routes;
 
 jQuery(document).ready(() => routes.loadEvents());

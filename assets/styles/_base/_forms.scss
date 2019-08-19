@@ -1,0 +1,27 @@
+form {
+    & input:not(button) {
+        border: 1px solid map-deep-get($colors, 'primary', 'default');
+        color: map-deep-get($colors, 'primary', 700);
+        background: map-deep-get($colors, 'white', 'default');
+        padding: 0.25rem 0.5rem;
+    }
+
+    & select {
+        border: 1px solid map-deep-get($colors, 'primary', 'default');
+        background: map-deep-get($colors, 'white', 'default');
+        width: auto !important;
+    }
+
+    & button {
+        position: relative !important;
+    }
+}
+
+.nf-error-msg,
+.ninja-forms-req-symbol {
+    color: map-deep-get($colors, 'secondary', 'default') !important;
+}
+
+.nf-error .ninja-forms-field {
+    border-color: map-deep-get($colors, 'secondary', 'default') !important;
+}

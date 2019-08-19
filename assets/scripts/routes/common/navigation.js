@@ -30,7 +30,7 @@ const _navHandler = (element) => {
     }
 
     _addEvents({element, event, target});
-}
+};
 
 const _addEvents = ({element, event, target}) => {
     const el = document.querySelector(target);
@@ -68,7 +68,7 @@ const _addEvents = ({element, event, target}) => {
             );
         });
     }
-}
+};
 
 
 export { navHandler };

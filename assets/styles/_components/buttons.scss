@@ -1,19 +1,23 @@
 .btn {
+    position: relative;
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    letter-spacing: 3px;
+
     @each $name, $map in $colors {
         &.#{$name} {
             color: map-deep-get($colors, 'white', 'default');
             background: map-deep-get($colors, $name, 'default');
-    
+
             &:not(.no-border) {
-                border-color: map-deep-get($colors, $name, 700);
-            }  
+                border-color: map-deep-get($colors, $name, 600);
+            }
 
             &:not(.no-animation):not(.no-border) {
                 &:hover {
                     color: map-deep-get($colors, 'white', 'default');
-                    border-bottom-width: 0;
-                    border-top-style: solid;
-                    border-top-width: 5px;
+                    border-right-color: map-deep-get($colors, $name, 700);
+
                 }
 
                 @include transition;
@@ -22,15 +26,13 @@
     }
 
     &:not(.no-border) {
-        border-bottom-width: 5px;
-        border-bottom-style: solid;
+        border-right-width: 45px;
+        border-right-style: solid;
     }
 
     &:not(.no-uppercase) {
         text-transform: uppercase;
     }
-
-    padding: 0.5rem;
 
     &.equalize {
         height: 60px;
@@ -44,8 +46,17 @@
         }
     }
 
-    cursor: pointer;
+    &::after {
+        position: absolute;
+        right: -33px;
+        top: 53%;
+        transform: translateY(-50%);
+        content: $arrow;
+        width: 23px;
+        height: 23px;
 
+        @include transition;
+    }
 
     &:not(.no-animation) {
         &:hover {
@@ -67,26 +78,43 @@
 #submit-button {
     color: theme('colors.white.default');
     background: map-deep-get($colors, 'quaternary', 'default');
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    border-radius: 0;
+    cursor: pointer;
 
     &:not(.no-border) {
-        border-color: map-deep-get($colors, 'quaternary', 700);
-    }  
+        border-color: map-deep-get($colors, 'quaternary', 600);
+    }
 
     &:not(.no-animation):not(.no-border) {
         &:hover {
-            border-bottom-width: 0;
-            border-top-style: solid;
-            border-top-width: 5px;
+            color: map-deep-get($colors, 'white', 'default');
+            border-right-color: map-deep-get($colors, 'quaternary', 700);
+
         }
 
+        @include transition;
     }
+
     @include transition;
 
     &:not(.no-border) {
-        border-bottom-width: 5px;
-        border-bottom-style: solid;
+        border-right-width: 45px;
+        border-right-style: solid;
     }
 
-    border-radius: 0;
-    cursor: pointer;
+    &::after {
+        position: absolute;
+        right: -33px;
+        top: 53%;
+        transform: translateY(-50%);
+        content: $arrow;
+        width: 23px;
+        height: 23px;
+
+        @include transition;
+    }
+
 }

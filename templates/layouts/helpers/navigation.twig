@@ -1,8 +1,8 @@
 {% for item in primaryMenu.items %}
     <div class="navMenu-wrapper">
-        <a 
-            href="{{ item.link }}" 
-            title="{{ item.title }}" 
+        <a
+            href="{{ item.link }}"
+            title="{{ item.title }}"
             target="{{ item.target ? item.target : '_self' }}"
             class="navMenu-item {{ item.classes|join(' ') }}"
         >
@@ -10,17 +10,17 @@
 
             {% if item.children %}
                 <span class="ml-4 text-grey absolute">
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="hb chevron"></i>
                 </span>
             {% endif %}
-            
+
         </a>
 
         {% if item.children %}
             <ul class="navMenu-submenu">
                 {% for child in item.children %}
                     <li>
-                        <a 
+                        <a
                             href="{{ child.link }}"
                             class="submenu-item {{ child.classes|join(' ') }}"
                             title="{{ child.title }}"

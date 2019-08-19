@@ -627,7 +627,8 @@ video {
   }
 }
 
-html p {
+html p,
+.nf-form-layout {
   font-family: "Source Sans Pro";
   font-weight: 400;
   font-style: normal;
@@ -671,13 +672,18 @@ h6 {
 
 h1,
 h2 {
+  font-size: 34px;
+}
+
+.home h1,
+.home h2 {
   font-size: 56px;
 }
 
 @media screen and (max-width: 414px) {
   h1,
 h2 {
-    font-size: 36px;
+    font-size: 34px;
   }
 }
 
@@ -696,9 +702,73 @@ p a:hover,
   text-decoration: none;
 }
 
+ul:not(.navMenu-submenu) li:not(.ninja-forms-field) {
+  padding-left: 1rem;
+  margin-left: 1rem;
+  position: relative;
+}
+
+ul:not(.navMenu-submenu) li:not(.ninja-forms-field)::before {
+  content: "-";
+  color: hsla(193, 28%, 41%, 1);
+  position: absolute;
+  top: 50%;
+  left: -0.5rem;
+  transform: translateY(-50%);
+}
+
+.field-wrap ul li::before {
+  content: "" !important;
+}
+
+.hb.menu {
+  height: 1.5rem;
+  width: 1.5rem;
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAA/CAYAAACsCOUAAAAACXBIWXMAABcRAAAXEQHKJvM/AAABI0lEQVR4nO3ZwW3CQBQG4T8oBaQErtwsN5BWKCElQAeU4FKoYJWbr+nEKHfvMghZMni+KyA/z2GF9n1M0xS17exzn5EAIwFGAowEGAn4rH3l0PfHJPs1Dbuw61jKde4R1UhJ/iN9v+LbPuHhSEPtR2+q+q7+4wY8uAEjAUYCjAQYCTASYCTASICRACMBRgKMBBgJMBJgJMBIgJEAIwGtbcklSbemYRc2jKUMc49oLQK6jW1LqouAVqSfJF/LzLNKf7Wh3JYAHtyAkQAjAUYCjAQYCTASYCTASICRACMBRgKMBBgJMBJgJMBIQGsR0G3t+nYsZfYKt3XHfdnYIuCc5DT3QSvS73LzrJKLgGd4cANGAowEGAkwEmAkwEiAkQAj3ZPkBiuwJQ+q1mxqAAAAAElFTkSuQmCC");
+}
+
+.hb.close, .hb.cross {
+  height: 1rem;
+  width: 1rem;
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAA/CAYAAACsCOUAAAAACXBIWXMAABcRAAAXEQHKJvM/AAADqUlEQVR4nO1cPW4TQRT+QPRwAyxRbRUzF8A3IC0VTpMCCsIJgBMkFNAmKalwThDnApOk2goJ3wCfwGjQZzQa2TuzO29+Iu1XeS1r5u03O++9ed9bP9psNhjRjccjP36MJAVgJCkAI0kBGEkKwJOunzRKPQOwBHDWan1Ri9FSaJQ6ATAHMGu1/rNvWN+TZAY5AHDeKPW5yjsdiEYps+invL951yjePKlR6gzAB15etlp3Dlg7uDsMQa9p6pFvlwQlk41ShphzXt4AOOx6PGuF5T4OQglCqOPmQEcA1gBemYk44UMiaGoRZO7jZaif7XUssSZ6CmDFJ+ouxvgciLW7VwrAgWcA7gE85xM1rZGYLegqtgQZu6d9F7Z3nuQQZSa+pSHVwfKlxs4rX6jfh8FVAPokE/ne8quPrdZntRDFEL+1LSoqR5dKJI2RgmPTl1brqBxPpJ7EzPWUl5cmCS2RIgwN8T6IFd2cXOp+6P6PmH8CYGGFeBPBlhJji1YmnVBriJrnSBGceddcILF5RasAVuRbc0WTpwiNUofOwkykF0a8VEIDJ1aKsOSNiINb/KdFUJItnkwIoBNd8BgDKSdqjW8i1ideJo2qydUSJxx/bbU+qXHMLmSRlKRWPfXTuQ/ZdLfYFMHJgdbMxbJUS7OKk3TgF30dLSPkgodq8RDvQ3YFt29OUyr3spFdLeENTp0UYbbrt9yit86Tl71+VURSarX+7ZRbrt1yC8+DWx92mfuYY6N4w8SuE3ttlYUqukocUn4BeMHPVdSoqmm9aZR6B+Cb9dX7VuvvBU36jypkbkawY15uV+24FkWmOEk7pJ43VhXhrgahoShJe8ocPxj5VrUoMsVIcsocN3aI35NLFYtwRRx3aH/BEN0+BUocS3orGaXzppxVgCglo6Qik6ue5JY5zCF1MWCcIopMjsqkqJLBw/DCioiHPAsmQ9LoxhuKalZwQS1tljOXSkYSt8a1U+YQWfGcigxSbbdcSkYqWduFOEklwrV0g4QLyV6AoolfygZYqa6SYkqGY0eSBliJ/qSiSsYOewYpMl2IIqnWRlPp3GxwCiDRsJkKO/o6o8otg0iSathMCckG2N7brcYeyS5INMAGk1R7t60PMYsb+m5Jlsw2NZwU4YrVCK+bCHlLKVnDZgkMKbd0kpS6YbMU+jZh+KKbGSxZw2YpWJFvxR0y6TIlZLv9k30e4vttPtDXznxV0vEfJgIwvs0dgJGkAIwkBWAkyQcAfwE9mIzi29PvgwAAAABJRU5ErkJggg==");
+}
+
+.hb.chevron {
+  height: 1rem;
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAmCAYAAAB9Lz3jAAAACXBIWXMAABcRAAAXEQHKJvM/AAABjUlEQVRoge3awU3DMBTG8T+od9iAXnMCeQJG6AaUDboRZQNGYAKrt1xhBCYIikjVkJSS2H7vOVG+m5VISX6KEvs9X1VVxZJTrheL31lAOlm1h4VzD8A7sCu93+dwg1IpnLttnvVQer89Xqb7htQHboCXwrmtyp0ZpIVxD2wK59ZnQUrvd8BrM5wlSgfjC3gsvf84Hu99Q5rXZ5Yof2Ac2uec/ajOEWUIBpf+MnNCGYrBf7/dOaCMwWDIPGTKKGMxGDoxmyJKCAZjZqpTQgnFYOzUfQooMRiErGVyRonFIHRxlyNKCgxiVrs5oaTCIHb5nwNKSgxS1EMsUVJjkKpAZIEigUHKipkmihQGqUuIGiiSGEjUVCVRpDGQKjJLoGhgIFl1T4mihYF0GyIFiiYGGn2ZGBRtDLQaVSEoFhhodu7GoFhhoN3KHIJiiYFFb/cSijVGHbPtEIVzde/4qRk+A2/WGFiC0Ef5BO4sMbAGoY9iikEOIJxQNtYY5ALCD8q63YW3yrLHrJNlS1U7wDdRI1/mrVpn9AAAAABJRU5ErkJggg==");
+}
+
+form input:not(button) {
+  border: 1px solid hsl(194, 26%, 60%);
+  color: hsla(193, 28%, 41%, 1);
+  background: hsl(0, 0%, 100%);
+  padding: 0.25rem 0.5rem;
+}
+
+form select {
+  border: 1px solid hsl(194, 26%, 60%);
+  background: hsl(0, 0%, 100%);
+  width: auto !important;
+}
+
+form button {
+  position: relative !important;
+}
+
+.nf-error-msg,
+.ninja-forms-req-symbol {
+  color: hsl(355, 26%, 55%) !important;
+}
+
+.nf-error .ninja-forms-field {
+  border-color: hsl(355, 26%, 55%) !important;
+}
+
 .btn {
-  padding: 0.5rem;
+  position: relative;
   cursor: pointer;
+  padding: 0.7rem 1rem;
+  letter-spacing: 3px;
 }
 
 .btn.primary {
@@ -707,7 +777,7 @@ p a:hover,
 }
 
 .btn.primary:not(.no-border) {
-  border-color: hsla(193, 28%, 41%, 1);
+  border-color: hsl(194, 27%, 55%);
 }
 
 .btn.primary:not(.no-animation):not(.no-border) {
@@ -716,9 +786,7 @@ p a:hover,
 
 .btn.primary:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
+  border-right-color: hsla(193, 28%, 41%, 1);
 }
 
 .btn.secondary {
@@ -727,7 +795,7 @@ p a:hover,
 }
 
 .btn.secondary:not(.no-border) {
-  border-color: hsla(354, 34%, 38%, 1);
+  border-color: hsl(355, 27%, 45%);
 }
 
 .btn.secondary:not(.no-animation):not(.no-border) {
@@ -736,9 +804,7 @@ p a:hover,
 
 .btn.secondary:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
+  border-right-color: hsla(354, 34%, 38%, 1);
 }
 
 .btn.tertiary {
@@ -747,7 +813,7 @@ p a:hover,
 }
 
 .btn.tertiary:not(.no-border) {
-  border-color: hsla(56, 40%, 35%, 1);
+  border-color: hsl(57, 29%, 43%);
 }
 
 .btn.tertiary:not(.no-animation):not(.no-border) {
@@ -756,9 +822,7 @@ p a:hover,
 
 .btn.tertiary:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
+  border-right-color: hsla(56, 40%, 35%, 1);
 }
 
 .btn.quaternary {
@@ -767,7 +831,7 @@ p a:hover,
 }
 
 .btn.quaternary:not(.no-border) {
-  border-color: hsla(32, 46%, 45%, 1);
+  border-color: hsla(32, 66%, 49%, 1);
 }
 
 .btn.quaternary:not(.no-animation):not(.no-border) {
@@ -776,9 +840,7 @@ p a:hover,
 
 .btn.quaternary:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
+  border-right-color: hsla(32, 66%, 45%, 1);
 }
 
 .btn.white {
@@ -792,9 +854,6 @@ p a:hover,
 
 .btn.white:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
 }
 
 .btn.black {
@@ -808,9 +867,6 @@ p a:hover,
 
 .btn.black:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
 }
 
 .btn.grey {
@@ -824,14 +880,11 @@ p a:hover,
 
 .btn.grey:not(.no-animation):not(.no-border):hover {
   color: hsl(0, 0%, 100%);
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
 }
 
 .btn:not(.no-border) {
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
+  border-right-width: 45px;
+  border-right-style: solid;
 }
 
 .btn:not(.no-uppercase) {
@@ -848,6 +901,17 @@ p a:hover,
 
 .btn.equalize.md {
   height: 45px;
+}
+
+.btn::after {
+  position: absolute;
+  right: -33px;
+  top: 53%;
+  transform: translateY(-50%);
+  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxhYWdfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDM0Ljc1IDI5LjY0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNC43NSAyOS42NDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiMyODMxMzE7fQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7fQo8L3N0eWxlPgo8ZyBpZD0iR3JvdXBfOTlfMV8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04OTcuNjU4IC0xMDA4LjM4MykiPgoJPHBhdGggaWQ9IlBhdGhfNDJfMV8iIGNsYXNzPSJzdDEiIGQ9Ik05MTYuNzcsMTAzNi43NGwxNC41My0xMy43NWwtMTQuNTMtMTMuNzUiLz4KPC9nPgo8bGluZSBjbGFzcz0ic3QxIiB4MT0iMzIuOSIgeTE9IjE0LjYiIHgyPSIxLjkiIHkyPSIxNC42Ii8+Cjwvc3ZnPgo=");
+  width: 23px;
+  height: 23px;
+  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 .btn:not(.no-animation):hover {
@@ -868,29 +932,53 @@ p a:hover,
 #submit-button {
   color: hsl(0, 0%, 100%);
   background: hsla(32, 65%, 59%, 1);
-  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
   border-radius: 0;
   cursor: pointer;
+  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 #submit-button:not(.no-border) {
-  border-color: hsla(32, 46%, 45%, 1);
+  border-color: hsla(32, 66%, 49%, 1);
+}
+
+#submit-button:not(.no-animation):not(.no-border) {
+  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 #submit-button:not(.no-animation):not(.no-border):hover {
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-top-width: 5px;
+  color: hsl(0, 0%, 100%);
+  border-right-color: hsla(32, 66%, 45%, 1);
 }
 
 #submit-button:not(.no-border) {
-  border-bottom-width: 5px;
-  border-bottom-style: solid;
+  border-right-width: 45px;
+  border-right-style: solid;
+}
+
+#submit-button::after {
+  position: absolute;
+  right: -33px;
+  top: 53%;
+  transform: translateY(-50%);
+  content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxhYWdfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDM0Ljc1IDI5LjY0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNC43NSAyOS42NDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiMyODMxMzE7fQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7fQo8L3N0eWxlPgo8ZyBpZD0iR3JvdXBfOTlfMV8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04OTcuNjU4IC0xMDA4LjM4MykiPgoJPHBhdGggaWQ9IlBhdGhfNDJfMV8iIGNsYXNzPSJzdDEiIGQ9Ik05MTYuNzcsMTAzNi43NGwxNC41My0xMy43NWwtMTQuNTMtMTMuNzUiLz4KPC9nPgo8bGluZSBjbGFzcz0ic3QxIiB4MT0iMzIuOSIgeTE9IjE0LjYiIHgyPSIxLjkiIHkyPSIxNC42Ii8+Cjwvc3ZnPgo=");
+  width: 23px;
+  height: 23px;
+  transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 .header {
   display: flex;
-  min-height: 110px;
+  min-height: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 40;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0px 3px 6px hsla(0, 0%, 0%, 0.16);
 }
 
 @media screen and (max-width: 414px) {
@@ -899,78 +987,17 @@ p a:hover,
   }
 }
 
-.home .header .logo-wrapper .custom-logo {
-  max-width: 250px;
-}
-
-.home .header .logo-wrapper.floater {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.home .header .logo-wrapper.floater .subtitle {
-  position: absolute;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  transform: translateX(-50%);
-  left: 50%;
-}
-
-@media screen and (min-width: 768px) {
-  .home .header .logo-wrapper.floater .subtitle {
-    font-size: 57px;
-    bottom: -20vh;
-  }
-}
-
-.home .header .logo-wrapper:not(.floater), .home .header .logo-wrapper.moving {
-  display: flex;
-}
-
-.home .header .logo-wrapper:not(.floater) figcaption, .home .header .logo-wrapper.moving figcaption {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-left: 0.5rem;
-  padding-left: 0.5rem;
-  border-left: 1px solid hsla(0, 0%, 0%, 0.16);
-}
-
-@media screen and (max-width: 414px) {
-  .home .header .logo-wrapper:not(.floater) figcaption, .home .header .logo-wrapper.moving figcaption {
-    display: none;
-  }
-}
-
-.home .header .logo-wrapper:not(.floater) figcaption.subtitle, .home .header .logo-wrapper.moving figcaption.subtitle {
-  font-size: 1rem;
-  position: unset;
-}
-
-.header.floater {
-  position: -webkit-sticky;
-  position: sticky;
-  width: 100%;
-  top: 0;
-  z-index: 40;
-  box-shadow: 0px 3px 6px hsla(0, 0%, 0%, 0.16);
-  background: hsl(0, 0%, 100%);
+.home .header .logo-wrapper {
   transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-@media screen and (min-width: 414px) {
-  .admin-bar .header.floater {
-    top: 32px;
-  }
+.home .header .logo-wrapper.floater {
+  display: none;
 }
 
 .header .container {
   display: flex;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
 }
 
 .header .subtitle {
@@ -978,48 +1005,37 @@ p a:hover,
   font-style: italic;
 }
 
-body:not(.home) .header {
-  position: -webkit-sticky;
-  position: sticky;
-  width: 100%;
-  top: 0;
-  z-index: 40;
-  box-shadow: 0px 3px 6px hsla(0, 0%, 0%, 0.16);
-  background: hsl(0, 0%, 100%);
-}
-
-@media screen and (min-width: 414px) {
-  .admin-bar body:not(.home) .header {
-    top: 32px;
-  }
-}
-
-body:not(.home) .header .logo-wrapper {
+.header .logo-wrapper {
   display: flex;
 }
 
-body:not(.home) .header .logo-wrapper .custom-logo {
-  max-width: 250px;
+.header .logo-wrapper .custom-logo {
+  max-width: 200px;
 }
 
-body:not(.home) .header .logo-wrapper figcaption {
-  height: 100%;
+.header .logo-wrapper a {
   display: flex;
   align-items: center;
-  margin-left: 0.5rem;
-  padding-left: 0.5rem;
-  border-left: 1px solid hsla(0, 0%, 0%, 0.16);
+}
+
+.header .logo-wrapper figcaption {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid hsla(0, 0%, 65%, 1);
+  margin-left: 2rem;
+  padding-left: 2rem;
 }
 
 @media screen and (max-width: 414px) {
-  body:not(.home) .header .logo-wrapper figcaption {
+  .header .logo-wrapper figcaption {
     display: none;
   }
 }
 
-body:not(.home) .header .logo-wrapper figcaption.subtitle {
-  font-size: 1rem;
-  position: unset;
+@media screen and (min-width: 414px) {
+  .admin-bar .header {
+    top: 32px;
+  }
 }
 
 .navMenu {
@@ -1042,50 +1058,48 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 }
 
 .navMenu .navMenu-wrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .navMenu .navMenu-wrapper .navMenu-submenu {
-  padding-left: 2rem;
-  margin-top: 1rem;
+  padding-left: 1rem;
 }
 
 .navMenu .navMenu-wrapper .navMenu-submenu .submenu-item {
-  font-family: "Poppins";
+  font-family: "Source Sans Pro";
   font-weight: 400;
   font-size: 400;
-  text-transform: uppercase;
+  text-transform: none;
   display: block;
   color: hsla(0, 0%, 65%, 1);
   transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 .navMenu .navMenu-wrapper .navMenu-submenu .submenu-item:hover {
-  transform: skew(-15deg);
+  color: hsl(194, 26%, 60%);
 }
 
 .navMenu .navMenu-item {
-  font-family: "Poppins";
+  font-family: "Source Sans Pro";
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
   color: hsl(0, 0%, 0%);
   display: inline-block;
+  letter-spacing: 3px;
   position: relative;
   transition: all 0.225s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
-.navMenu .navMenu-item.current-menu-item {
-  border-bottom: 3px solid hsl(0, 0%, 0%);
-}
-
 .navMenu .navMenu-item:hover {
-  transform: skew(-15deg);
+  color: hsl(194, 26%, 60%);
 }
 
 .navMenu .navMenu-item span {
-  top: 0;
-  right: -3rem;
+  display: none;
+  top: 50%;
+  right: -2rem;
+  transform: translateY(-50%);
 }
 
 @media screen and (max-width: 516px) {
@@ -1156,6 +1170,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(194, 26%, 60%);
 }
 
+.bg-primary-600 {
+  background-color: hsl(194, 27%, 55%);
+}
+
 .bg-primary-700 {
   background-color: hsla(193, 28%, 41%, 1);
 }
@@ -1166,6 +1184,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .bg-secondary-500 {
   background-color: hsl(355, 26%, 55%);
+}
+
+.bg-secondary-600 {
+  background-color: hsl(355, 27%, 45%);
 }
 
 .bg-secondary-700 {
@@ -1180,6 +1202,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(57, 29%, 53%);
 }
 
+.bg-tertiary-600 {
+  background-color: hsl(57, 29%, 43%);
+}
+
 .bg-tertiary-700 {
   background-color: hsla(56, 40%, 35%, 1);
 }
@@ -1192,8 +1218,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsla(32, 65%, 59%, 1);
 }
 
+.bg-quaternary-600 {
+  background-color: hsla(32, 66%, 49%, 1);
+}
+
 .bg-quaternary-700 {
-  background-color: hsla(32, 46%, 45%, 1);
+  background-color: hsla(32, 66%, 45%, 1);
 }
 
 .bg-quaternary {
@@ -1240,6 +1270,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(194, 26%, 60%);
 }
 
+.hover\:bg-primary-600:hover {
+  background-color: hsl(194, 27%, 55%);
+}
+
 .hover\:bg-primary-700:hover {
   background-color: hsla(193, 28%, 41%, 1);
 }
@@ -1250,6 +1284,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .hover\:bg-secondary-500:hover {
   background-color: hsl(355, 26%, 55%);
+}
+
+.hover\:bg-secondary-600:hover {
+  background-color: hsl(355, 27%, 45%);
 }
 
 .hover\:bg-secondary-700:hover {
@@ -1264,6 +1302,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(57, 29%, 53%);
 }
 
+.hover\:bg-tertiary-600:hover {
+  background-color: hsl(57, 29%, 43%);
+}
+
 .hover\:bg-tertiary-700:hover {
   background-color: hsla(56, 40%, 35%, 1);
 }
@@ -1276,8 +1318,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsla(32, 65%, 59%, 1);
 }
 
+.hover\:bg-quaternary-600:hover {
+  background-color: hsla(32, 66%, 49%, 1);
+}
+
 .hover\:bg-quaternary-700:hover {
-  background-color: hsla(32, 46%, 45%, 1);
+  background-color: hsla(32, 66%, 45%, 1);
 }
 
 .hover\:bg-quaternary:hover {
@@ -1324,6 +1370,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(194, 26%, 60%);
 }
 
+.focus\:bg-primary-600:focus {
+  background-color: hsl(194, 27%, 55%);
+}
+
 .focus\:bg-primary-700:focus {
   background-color: hsla(193, 28%, 41%, 1);
 }
@@ -1334,6 +1384,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .focus\:bg-secondary-500:focus {
   background-color: hsl(355, 26%, 55%);
+}
+
+.focus\:bg-secondary-600:focus {
+  background-color: hsl(355, 27%, 45%);
 }
 
 .focus\:bg-secondary-700:focus {
@@ -1348,6 +1402,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsl(57, 29%, 53%);
 }
 
+.focus\:bg-tertiary-600:focus {
+  background-color: hsl(57, 29%, 43%);
+}
+
 .focus\:bg-tertiary-700:focus {
   background-color: hsla(56, 40%, 35%, 1);
 }
@@ -1360,8 +1418,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   background-color: hsla(32, 65%, 59%, 1);
 }
 
+.focus\:bg-quaternary-600:focus {
+  background-color: hsla(32, 66%, 49%, 1);
+}
+
 .focus\:bg-quaternary-700:focus {
-  background-color: hsla(32, 46%, 45%, 1);
+  background-color: hsla(32, 66%, 45%, 1);
 }
 
 .focus\:bg-quaternary:focus {
@@ -1488,6 +1550,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(194, 26%, 60%);
 }
 
+.border-primary-600 {
+  border-color: hsl(194, 27%, 55%);
+}
+
 .border-primary-700 {
   border-color: hsla(193, 28%, 41%, 1);
 }
@@ -1498,6 +1564,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .border-secondary-500 {
   border-color: hsl(355, 26%, 55%);
+}
+
+.border-secondary-600 {
+  border-color: hsl(355, 27%, 45%);
 }
 
 .border-secondary-700 {
@@ -1512,6 +1582,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(57, 29%, 53%);
 }
 
+.border-tertiary-600 {
+  border-color: hsl(57, 29%, 43%);
+}
+
 .border-tertiary-700 {
   border-color: hsla(56, 40%, 35%, 1);
 }
@@ -1524,8 +1598,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsla(32, 65%, 59%, 1);
 }
 
+.border-quaternary-600 {
+  border-color: hsla(32, 66%, 49%, 1);
+}
+
 .border-quaternary-700 {
-  border-color: hsla(32, 46%, 45%, 1);
+  border-color: hsla(32, 66%, 45%, 1);
 }
 
 .border-quaternary {
@@ -1572,6 +1650,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(194, 26%, 60%);
 }
 
+.hover\:border-primary-600:hover {
+  border-color: hsl(194, 27%, 55%);
+}
+
 .hover\:border-primary-700:hover {
   border-color: hsla(193, 28%, 41%, 1);
 }
@@ -1582,6 +1664,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .hover\:border-secondary-500:hover {
   border-color: hsl(355, 26%, 55%);
+}
+
+.hover\:border-secondary-600:hover {
+  border-color: hsl(355, 27%, 45%);
 }
 
 .hover\:border-secondary-700:hover {
@@ -1596,6 +1682,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(57, 29%, 53%);
 }
 
+.hover\:border-tertiary-600:hover {
+  border-color: hsl(57, 29%, 43%);
+}
+
 .hover\:border-tertiary-700:hover {
   border-color: hsla(56, 40%, 35%, 1);
 }
@@ -1608,8 +1698,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsla(32, 65%, 59%, 1);
 }
 
+.hover\:border-quaternary-600:hover {
+  border-color: hsla(32, 66%, 49%, 1);
+}
+
 .hover\:border-quaternary-700:hover {
-  border-color: hsla(32, 46%, 45%, 1);
+  border-color: hsla(32, 66%, 45%, 1);
 }
 
 .hover\:border-quaternary:hover {
@@ -1656,6 +1750,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(194, 26%, 60%);
 }
 
+.focus\:border-primary-600:focus {
+  border-color: hsl(194, 27%, 55%);
+}
+
 .focus\:border-primary-700:focus {
   border-color: hsla(193, 28%, 41%, 1);
 }
@@ -1666,6 +1764,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .focus\:border-secondary-500:focus {
   border-color: hsl(355, 26%, 55%);
+}
+
+.focus\:border-secondary-600:focus {
+  border-color: hsl(355, 27%, 45%);
 }
 
 .focus\:border-secondary-700:focus {
@@ -1680,6 +1782,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsl(57, 29%, 53%);
 }
 
+.focus\:border-tertiary-600:focus {
+  border-color: hsl(57, 29%, 43%);
+}
+
 .focus\:border-tertiary-700:focus {
   border-color: hsla(56, 40%, 35%, 1);
 }
@@ -1692,8 +1798,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   border-color: hsla(32, 65%, 59%, 1);
 }
 
+.focus\:border-quaternary-600:focus {
+  border-color: hsla(32, 66%, 49%, 1);
+}
+
 .focus\:border-quaternary-700:focus {
-  border-color: hsla(32, 46%, 45%, 1);
+  border-color: hsla(32, 66%, 45%, 1);
 }
 
 .focus\:border-quaternary:focus {
@@ -4765,6 +4875,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(194, 26%, 60%);
 }
 
+.text-primary-600 {
+  color: hsl(194, 27%, 55%);
+}
+
 .text-primary-700 {
   color: hsla(193, 28%, 41%, 1);
 }
@@ -4775,6 +4889,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .text-secondary-500 {
   color: hsl(355, 26%, 55%);
+}
+
+.text-secondary-600 {
+  color: hsl(355, 27%, 45%);
 }
 
 .text-secondary-700 {
@@ -4789,6 +4907,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(57, 29%, 53%);
 }
 
+.text-tertiary-600 {
+  color: hsl(57, 29%, 43%);
+}
+
 .text-tertiary-700 {
   color: hsla(56, 40%, 35%, 1);
 }
@@ -4801,8 +4923,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsla(32, 65%, 59%, 1);
 }
 
+.text-quaternary-600 {
+  color: hsla(32, 66%, 49%, 1);
+}
+
 .text-quaternary-700 {
-  color: hsla(32, 46%, 45%, 1);
+  color: hsla(32, 66%, 45%, 1);
 }
 
 .text-quaternary {
@@ -4849,6 +4975,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(194, 26%, 60%);
 }
 
+.hover\:text-primary-600:hover {
+  color: hsl(194, 27%, 55%);
+}
+
 .hover\:text-primary-700:hover {
   color: hsla(193, 28%, 41%, 1);
 }
@@ -4859,6 +4989,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .hover\:text-secondary-500:hover {
   color: hsl(355, 26%, 55%);
+}
+
+.hover\:text-secondary-600:hover {
+  color: hsl(355, 27%, 45%);
 }
 
 .hover\:text-secondary-700:hover {
@@ -4873,6 +5007,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(57, 29%, 53%);
 }
 
+.hover\:text-tertiary-600:hover {
+  color: hsl(57, 29%, 43%);
+}
+
 .hover\:text-tertiary-700:hover {
   color: hsla(56, 40%, 35%, 1);
 }
@@ -4885,8 +5023,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsla(32, 65%, 59%, 1);
 }
 
+.hover\:text-quaternary-600:hover {
+  color: hsla(32, 66%, 49%, 1);
+}
+
 .hover\:text-quaternary-700:hover {
-  color: hsla(32, 46%, 45%, 1);
+  color: hsla(32, 66%, 45%, 1);
 }
 
 .hover\:text-quaternary:hover {
@@ -4933,6 +5075,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(194, 26%, 60%);
 }
 
+.focus\:text-primary-600:focus {
+  color: hsl(194, 27%, 55%);
+}
+
 .focus\:text-primary-700:focus {
   color: hsla(193, 28%, 41%, 1);
 }
@@ -4943,6 +5089,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
 .focus\:text-secondary-500:focus {
   color: hsl(355, 26%, 55%);
+}
+
+.focus\:text-secondary-600:focus {
+  color: hsl(355, 27%, 45%);
 }
 
 .focus\:text-secondary-700:focus {
@@ -4957,6 +5107,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsl(57, 29%, 53%);
 }
 
+.focus\:text-tertiary-600:focus {
+  color: hsl(57, 29%, 43%);
+}
+
 .focus\:text-tertiary-700:focus {
   color: hsla(56, 40%, 35%, 1);
 }
@@ -4969,8 +5123,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
   color: hsla(32, 65%, 59%, 1);
 }
 
+.focus\:text-quaternary-600:focus {
+  color: hsla(32, 66%, 49%, 1);
+}
+
 .focus\:text-quaternary-700:focus {
-  color: hsla(32, 46%, 45%, 1);
+  color: hsla(32, 66%, 45%, 1);
 }
 
 .focus\:text-quaternary:focus {
@@ -5489,6 +5647,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:bg-primary-600 {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:bg-primary-700 {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -5499,6 +5661,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:bg-secondary-500 {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:bg-secondary-600 {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .sm\:bg-secondary-700 {
@@ -5513,6 +5679,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:bg-tertiary-600 {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:bg-tertiary-700 {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -5525,8 +5695,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:bg-quaternary-600 {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:bg-quaternary-700 {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:bg-quaternary {
@@ -5573,6 +5747,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:hover\:bg-primary-600:hover {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:hover\:bg-primary-700:hover {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -5583,6 +5761,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:hover\:bg-secondary-500:hover {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:hover\:bg-secondary-600:hover {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .sm\:hover\:bg-secondary-700:hover {
@@ -5597,6 +5779,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:hover\:bg-tertiary-600:hover {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:hover\:bg-tertiary-700:hover {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -5609,8 +5795,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:hover\:bg-quaternary-600:hover {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:hover\:bg-quaternary-700:hover {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:hover\:bg-quaternary:hover {
@@ -5657,6 +5847,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:focus\:bg-primary-600:focus {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:focus\:bg-primary-700:focus {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -5667,6 +5861,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:focus\:bg-secondary-500:focus {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:focus\:bg-secondary-600:focus {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .sm\:focus\:bg-secondary-700:focus {
@@ -5681,6 +5879,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:focus\:bg-tertiary-600:focus {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:focus\:bg-tertiary-700:focus {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -5693,8 +5895,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:focus\:bg-quaternary-600:focus {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:focus\:bg-quaternary-700:focus {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:focus\:bg-quaternary:focus {
@@ -5821,6 +6027,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:border-primary-600 {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:border-primary-700 {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -5831,6 +6041,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:border-secondary-500 {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:border-secondary-600 {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .sm\:border-secondary-700 {
@@ -5845,6 +6059,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:border-tertiary-600 {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:border-tertiary-700 {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -5857,8 +6075,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:border-quaternary-600 {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:border-quaternary-700 {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:border-quaternary {
@@ -5905,6 +6127,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:hover\:border-primary-600:hover {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:hover\:border-primary-700:hover {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -5915,6 +6141,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:hover\:border-secondary-500:hover {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:hover\:border-secondary-600:hover {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .sm\:hover\:border-secondary-700:hover {
@@ -5929,6 +6159,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:hover\:border-tertiary-600:hover {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:hover\:border-tertiary-700:hover {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -5941,8 +6175,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:hover\:border-quaternary-600:hover {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:hover\:border-quaternary-700:hover {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:hover\:border-quaternary:hover {
@@ -5989,6 +6227,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .sm\:focus\:border-primary-600:focus {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .sm\:focus\:border-primary-700:focus {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -5999,6 +6241,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:focus\:border-secondary-500:focus {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:focus\:border-secondary-600:focus {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .sm\:focus\:border-secondary-700:focus {
@@ -6013,6 +6259,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .sm\:focus\:border-tertiary-600:focus {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .sm\:focus\:border-tertiary-700:focus {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -6025,8 +6275,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:focus\:border-quaternary-600:focus {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:focus\:border-quaternary-700:focus {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:focus\:border-quaternary:focus {
@@ -9098,6 +9352,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .sm\:text-primary-600 {
+    color: hsl(194, 27%, 55%);
+  }
+
   .sm\:text-primary-700 {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -9108,6 +9366,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:text-secondary-500 {
     color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:text-secondary-600 {
+    color: hsl(355, 27%, 45%);
   }
 
   .sm\:text-secondary-700 {
@@ -9122,6 +9384,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .sm\:text-tertiary-600 {
+    color: hsl(57, 29%, 43%);
+  }
+
   .sm\:text-tertiary-700 {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -9134,8 +9400,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:text-quaternary-600 {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:text-quaternary-700 {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:text-quaternary {
@@ -9182,6 +9452,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .sm\:hover\:text-primary-600:hover {
+    color: hsl(194, 27%, 55%);
+  }
+
   .sm\:hover\:text-primary-700:hover {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -9192,6 +9466,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:hover\:text-secondary-500:hover {
     color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:hover\:text-secondary-600:hover {
+    color: hsl(355, 27%, 45%);
   }
 
   .sm\:hover\:text-secondary-700:hover {
@@ -9206,6 +9484,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .sm\:hover\:text-tertiary-600:hover {
+    color: hsl(57, 29%, 43%);
+  }
+
   .sm\:hover\:text-tertiary-700:hover {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -9218,8 +9500,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:hover\:text-quaternary-600:hover {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:hover\:text-quaternary-700:hover {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:hover\:text-quaternary:hover {
@@ -9266,6 +9552,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .sm\:focus\:text-primary-600:focus {
+    color: hsl(194, 27%, 55%);
+  }
+
   .sm\:focus\:text-primary-700:focus {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -9276,6 +9566,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .sm\:focus\:text-secondary-500:focus {
     color: hsl(355, 26%, 55%);
+  }
+
+  .sm\:focus\:text-secondary-600:focus {
+    color: hsl(355, 27%, 45%);
   }
 
   .sm\:focus\:text-secondary-700:focus {
@@ -9290,6 +9584,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .sm\:focus\:text-tertiary-600:focus {
+    color: hsl(57, 29%, 43%);
+  }
+
   .sm\:focus\:text-tertiary-700:focus {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -9302,8 +9600,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .sm\:focus\:text-quaternary-600:focus {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .sm\:focus\:text-quaternary-700:focus {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .sm\:focus\:text-quaternary:focus {
@@ -9823,6 +10125,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .md\:bg-primary-600 {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .md\:bg-primary-700 {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -9833,6 +10139,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:bg-secondary-500 {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:bg-secondary-600 {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .md\:bg-secondary-700 {
@@ -9847,6 +10157,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .md\:bg-tertiary-600 {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .md\:bg-tertiary-700 {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -9859,8 +10173,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:bg-quaternary-600 {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:bg-quaternary-700 {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:bg-quaternary {
@@ -9907,6 +10225,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .md\:hover\:bg-primary-600:hover {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .md\:hover\:bg-primary-700:hover {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -9917,6 +10239,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:hover\:bg-secondary-500:hover {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:hover\:bg-secondary-600:hover {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .md\:hover\:bg-secondary-700:hover {
@@ -9931,6 +10257,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .md\:hover\:bg-tertiary-600:hover {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .md\:hover\:bg-tertiary-700:hover {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -9943,8 +10273,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:hover\:bg-quaternary-600:hover {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:hover\:bg-quaternary-700:hover {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:hover\:bg-quaternary:hover {
@@ -9991,6 +10325,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .md\:focus\:bg-primary-600:focus {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .md\:focus\:bg-primary-700:focus {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -10001,6 +10339,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:focus\:bg-secondary-500:focus {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:focus\:bg-secondary-600:focus {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .md\:focus\:bg-secondary-700:focus {
@@ -10015,6 +10357,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .md\:focus\:bg-tertiary-600:focus {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .md\:focus\:bg-tertiary-700:focus {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -10027,8 +10373,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:focus\:bg-quaternary-600:focus {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:focus\:bg-quaternary-700:focus {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:focus\:bg-quaternary:focus {
@@ -10155,6 +10505,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .md\:border-primary-600 {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .md\:border-primary-700 {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -10165,6 +10519,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:border-secondary-500 {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:border-secondary-600 {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .md\:border-secondary-700 {
@@ -10179,6 +10537,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .md\:border-tertiary-600 {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .md\:border-tertiary-700 {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -10191,8 +10553,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:border-quaternary-600 {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:border-quaternary-700 {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:border-quaternary {
@@ -10239,6 +10605,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .md\:hover\:border-primary-600:hover {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .md\:hover\:border-primary-700:hover {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -10249,6 +10619,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:hover\:border-secondary-500:hover {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:hover\:border-secondary-600:hover {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .md\:hover\:border-secondary-700:hover {
@@ -10263,6 +10637,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .md\:hover\:border-tertiary-600:hover {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .md\:hover\:border-tertiary-700:hover {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -10275,8 +10653,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:hover\:border-quaternary-600:hover {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:hover\:border-quaternary-700:hover {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:hover\:border-quaternary:hover {
@@ -10323,6 +10705,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .md\:focus\:border-primary-600:focus {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .md\:focus\:border-primary-700:focus {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -10333,6 +10719,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:focus\:border-secondary-500:focus {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .md\:focus\:border-secondary-600:focus {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .md\:focus\:border-secondary-700:focus {
@@ -10347,6 +10737,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .md\:focus\:border-tertiary-600:focus {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .md\:focus\:border-tertiary-700:focus {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -10359,8 +10753,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:focus\:border-quaternary-600:focus {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:focus\:border-quaternary-700:focus {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:focus\:border-quaternary:focus {
@@ -13432,6 +13830,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .md\:text-primary-600 {
+    color: hsl(194, 27%, 55%);
+  }
+
   .md\:text-primary-700 {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -13442,6 +13844,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:text-secondary-500 {
     color: hsl(355, 26%, 55%);
+  }
+
+  .md\:text-secondary-600 {
+    color: hsl(355, 27%, 45%);
   }
 
   .md\:text-secondary-700 {
@@ -13456,6 +13862,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .md\:text-tertiary-600 {
+    color: hsl(57, 29%, 43%);
+  }
+
   .md\:text-tertiary-700 {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -13468,8 +13878,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:text-quaternary-600 {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:text-quaternary-700 {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:text-quaternary {
@@ -13516,6 +13930,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .md\:hover\:text-primary-600:hover {
+    color: hsl(194, 27%, 55%);
+  }
+
   .md\:hover\:text-primary-700:hover {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -13526,6 +13944,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:hover\:text-secondary-500:hover {
     color: hsl(355, 26%, 55%);
+  }
+
+  .md\:hover\:text-secondary-600:hover {
+    color: hsl(355, 27%, 45%);
   }
 
   .md\:hover\:text-secondary-700:hover {
@@ -13540,6 +13962,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .md\:hover\:text-tertiary-600:hover {
+    color: hsl(57, 29%, 43%);
+  }
+
   .md\:hover\:text-tertiary-700:hover {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -13552,8 +13978,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:hover\:text-quaternary-600:hover {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:hover\:text-quaternary-700:hover {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:hover\:text-quaternary:hover {
@@ -13600,6 +14030,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .md\:focus\:text-primary-600:focus {
+    color: hsl(194, 27%, 55%);
+  }
+
   .md\:focus\:text-primary-700:focus {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -13610,6 +14044,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .md\:focus\:text-secondary-500:focus {
     color: hsl(355, 26%, 55%);
+  }
+
+  .md\:focus\:text-secondary-600:focus {
+    color: hsl(355, 27%, 45%);
   }
 
   .md\:focus\:text-secondary-700:focus {
@@ -13624,6 +14062,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .md\:focus\:text-tertiary-600:focus {
+    color: hsl(57, 29%, 43%);
+  }
+
   .md\:focus\:text-tertiary-700:focus {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -13636,8 +14078,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .md\:focus\:text-quaternary-600:focus {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .md\:focus\:text-quaternary-700:focus {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .md\:focus\:text-quaternary:focus {
@@ -14157,6 +14603,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:bg-primary-600 {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:bg-primary-700 {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -14167,6 +14617,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:bg-secondary-500 {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:bg-secondary-600 {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .lg\:bg-secondary-700 {
@@ -14181,6 +14635,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:bg-tertiary-600 {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:bg-tertiary-700 {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -14193,8 +14651,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:bg-quaternary-600 {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:bg-quaternary-700 {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:bg-quaternary {
@@ -14241,6 +14703,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:hover\:bg-primary-600:hover {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:hover\:bg-primary-700:hover {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -14251,6 +14717,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:hover\:bg-secondary-500:hover {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:hover\:bg-secondary-600:hover {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .lg\:hover\:bg-secondary-700:hover {
@@ -14265,6 +14735,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:hover\:bg-tertiary-600:hover {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:hover\:bg-tertiary-700:hover {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -14277,8 +14751,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:hover\:bg-quaternary-600:hover {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:hover\:bg-quaternary-700:hover {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:hover\:bg-quaternary:hover {
@@ -14325,6 +14803,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:focus\:bg-primary-600:focus {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:focus\:bg-primary-700:focus {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -14335,6 +14817,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:focus\:bg-secondary-500:focus {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:focus\:bg-secondary-600:focus {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .lg\:focus\:bg-secondary-700:focus {
@@ -14349,6 +14835,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:focus\:bg-tertiary-600:focus {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:focus\:bg-tertiary-700:focus {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -14361,8 +14851,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:focus\:bg-quaternary-600:focus {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:focus\:bg-quaternary-700:focus {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:focus\:bg-quaternary:focus {
@@ -14489,6 +14983,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:border-primary-600 {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:border-primary-700 {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -14499,6 +14997,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:border-secondary-500 {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:border-secondary-600 {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .lg\:border-secondary-700 {
@@ -14513,6 +15015,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:border-tertiary-600 {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:border-tertiary-700 {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -14525,8 +15031,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:border-quaternary-600 {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:border-quaternary-700 {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:border-quaternary {
@@ -14573,6 +15083,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:hover\:border-primary-600:hover {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:hover\:border-primary-700:hover {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -14583,6 +15097,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:hover\:border-secondary-500:hover {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:hover\:border-secondary-600:hover {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .lg\:hover\:border-secondary-700:hover {
@@ -14597,6 +15115,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:hover\:border-tertiary-600:hover {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:hover\:border-tertiary-700:hover {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -14609,8 +15131,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:hover\:border-quaternary-600:hover {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:hover\:border-quaternary-700:hover {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:hover\:border-quaternary:hover {
@@ -14657,6 +15183,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .lg\:focus\:border-primary-600:focus {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .lg\:focus\:border-primary-700:focus {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -14667,6 +15197,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:focus\:border-secondary-500:focus {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:focus\:border-secondary-600:focus {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .lg\:focus\:border-secondary-700:focus {
@@ -14681,6 +15215,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .lg\:focus\:border-tertiary-600:focus {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .lg\:focus\:border-tertiary-700:focus {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -14693,8 +15231,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:focus\:border-quaternary-600:focus {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:focus\:border-quaternary-700:focus {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:focus\:border-quaternary:focus {
@@ -17766,6 +18308,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .lg\:text-primary-600 {
+    color: hsl(194, 27%, 55%);
+  }
+
   .lg\:text-primary-700 {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -17776,6 +18322,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:text-secondary-500 {
     color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:text-secondary-600 {
+    color: hsl(355, 27%, 45%);
   }
 
   .lg\:text-secondary-700 {
@@ -17790,6 +18340,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .lg\:text-tertiary-600 {
+    color: hsl(57, 29%, 43%);
+  }
+
   .lg\:text-tertiary-700 {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -17802,8 +18356,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:text-quaternary-600 {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:text-quaternary-700 {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:text-quaternary {
@@ -17850,6 +18408,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .lg\:hover\:text-primary-600:hover {
+    color: hsl(194, 27%, 55%);
+  }
+
   .lg\:hover\:text-primary-700:hover {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -17860,6 +18422,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:hover\:text-secondary-500:hover {
     color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:hover\:text-secondary-600:hover {
+    color: hsl(355, 27%, 45%);
   }
 
   .lg\:hover\:text-secondary-700:hover {
@@ -17874,6 +18440,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .lg\:hover\:text-tertiary-600:hover {
+    color: hsl(57, 29%, 43%);
+  }
+
   .lg\:hover\:text-tertiary-700:hover {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -17886,8 +18456,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:hover\:text-quaternary-600:hover {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:hover\:text-quaternary-700:hover {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:hover\:text-quaternary:hover {
@@ -17934,6 +18508,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .lg\:focus\:text-primary-600:focus {
+    color: hsl(194, 27%, 55%);
+  }
+
   .lg\:focus\:text-primary-700:focus {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -17944,6 +18522,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .lg\:focus\:text-secondary-500:focus {
     color: hsl(355, 26%, 55%);
+  }
+
+  .lg\:focus\:text-secondary-600:focus {
+    color: hsl(355, 27%, 45%);
   }
 
   .lg\:focus\:text-secondary-700:focus {
@@ -17958,6 +18540,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .lg\:focus\:text-tertiary-600:focus {
+    color: hsl(57, 29%, 43%);
+  }
+
   .lg\:focus\:text-tertiary-700:focus {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -17970,8 +18556,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .lg\:focus\:text-quaternary-600:focus {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .lg\:focus\:text-quaternary-700:focus {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .lg\:focus\:text-quaternary:focus {
@@ -18491,6 +19081,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:bg-primary-600 {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:bg-primary-700 {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -18501,6 +19095,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:bg-secondary-500 {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:bg-secondary-600 {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .xl\:bg-secondary-700 {
@@ -18515,6 +19113,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:bg-tertiary-600 {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:bg-tertiary-700 {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -18527,8 +19129,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:bg-quaternary-600 {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:bg-quaternary-700 {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:bg-quaternary {
@@ -18575,6 +19181,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:hover\:bg-primary-600:hover {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:hover\:bg-primary-700:hover {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -18585,6 +19195,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:hover\:bg-secondary-500:hover {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:hover\:bg-secondary-600:hover {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .xl\:hover\:bg-secondary-700:hover {
@@ -18599,6 +19213,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:hover\:bg-tertiary-600:hover {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:hover\:bg-tertiary-700:hover {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -18611,8 +19229,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:hover\:bg-quaternary-600:hover {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:hover\:bg-quaternary-700:hover {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:hover\:bg-quaternary:hover {
@@ -18659,6 +19281,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:focus\:bg-primary-600:focus {
+    background-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:focus\:bg-primary-700:focus {
     background-color: hsla(193, 28%, 41%, 1);
   }
@@ -18669,6 +19295,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:focus\:bg-secondary-500:focus {
     background-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:focus\:bg-secondary-600:focus {
+    background-color: hsl(355, 27%, 45%);
   }
 
   .xl\:focus\:bg-secondary-700:focus {
@@ -18683,6 +19313,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:focus\:bg-tertiary-600:focus {
+    background-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:focus\:bg-tertiary-700:focus {
     background-color: hsla(56, 40%, 35%, 1);
   }
@@ -18695,8 +19329,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     background-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:focus\:bg-quaternary-600:focus {
+    background-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:focus\:bg-quaternary-700:focus {
-    background-color: hsla(32, 46%, 45%, 1);
+    background-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:focus\:bg-quaternary:focus {
@@ -18823,6 +19461,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:border-primary-600 {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:border-primary-700 {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -18833,6 +19475,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:border-secondary-500 {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:border-secondary-600 {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .xl\:border-secondary-700 {
@@ -18847,6 +19493,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:border-tertiary-600 {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:border-tertiary-700 {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -18859,8 +19509,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:border-quaternary-600 {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:border-quaternary-700 {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:border-quaternary {
@@ -18907,6 +19561,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:hover\:border-primary-600:hover {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:hover\:border-primary-700:hover {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -18917,6 +19575,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:hover\:border-secondary-500:hover {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:hover\:border-secondary-600:hover {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .xl\:hover\:border-secondary-700:hover {
@@ -18931,6 +19593,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:hover\:border-tertiary-600:hover {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:hover\:border-tertiary-700:hover {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -18943,8 +19609,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:hover\:border-quaternary-600:hover {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:hover\:border-quaternary-700:hover {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:hover\:border-quaternary:hover {
@@ -18991,6 +19661,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(194, 26%, 60%);
   }
 
+  .xl\:focus\:border-primary-600:focus {
+    border-color: hsl(194, 27%, 55%);
+  }
+
   .xl\:focus\:border-primary-700:focus {
     border-color: hsla(193, 28%, 41%, 1);
   }
@@ -19001,6 +19675,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:focus\:border-secondary-500:focus {
     border-color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:focus\:border-secondary-600:focus {
+    border-color: hsl(355, 27%, 45%);
   }
 
   .xl\:focus\:border-secondary-700:focus {
@@ -19015,6 +19693,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsl(57, 29%, 53%);
   }
 
+  .xl\:focus\:border-tertiary-600:focus {
+    border-color: hsl(57, 29%, 43%);
+  }
+
   .xl\:focus\:border-tertiary-700:focus {
     border-color: hsla(56, 40%, 35%, 1);
   }
@@ -19027,8 +19709,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     border-color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:focus\:border-quaternary-600:focus {
+    border-color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:focus\:border-quaternary-700:focus {
-    border-color: hsla(32, 46%, 45%, 1);
+    border-color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:focus\:border-quaternary:focus {
@@ -22100,6 +22786,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .xl\:text-primary-600 {
+    color: hsl(194, 27%, 55%);
+  }
+
   .xl\:text-primary-700 {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -22110,6 +22800,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:text-secondary-500 {
     color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:text-secondary-600 {
+    color: hsl(355, 27%, 45%);
   }
 
   .xl\:text-secondary-700 {
@@ -22124,6 +22818,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .xl\:text-tertiary-600 {
+    color: hsl(57, 29%, 43%);
+  }
+
   .xl\:text-tertiary-700 {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -22136,8 +22834,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:text-quaternary-600 {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:text-quaternary-700 {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:text-quaternary {
@@ -22184,6 +22886,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .xl\:hover\:text-primary-600:hover {
+    color: hsl(194, 27%, 55%);
+  }
+
   .xl\:hover\:text-primary-700:hover {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -22194,6 +22900,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:hover\:text-secondary-500:hover {
     color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:hover\:text-secondary-600:hover {
+    color: hsl(355, 27%, 45%);
   }
 
   .xl\:hover\:text-secondary-700:hover {
@@ -22208,6 +22918,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .xl\:hover\:text-tertiary-600:hover {
+    color: hsl(57, 29%, 43%);
+  }
+
   .xl\:hover\:text-tertiary-700:hover {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -22220,8 +22934,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:hover\:text-quaternary-600:hover {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:hover\:text-quaternary-700:hover {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:hover\:text-quaternary:hover {
@@ -22268,6 +22986,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(194, 26%, 60%);
   }
 
+  .xl\:focus\:text-primary-600:focus {
+    color: hsl(194, 27%, 55%);
+  }
+
   .xl\:focus\:text-primary-700:focus {
     color: hsla(193, 28%, 41%, 1);
   }
@@ -22278,6 +23000,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
 
   .xl\:focus\:text-secondary-500:focus {
     color: hsl(355, 26%, 55%);
+  }
+
+  .xl\:focus\:text-secondary-600:focus {
+    color: hsl(355, 27%, 45%);
   }
 
   .xl\:focus\:text-secondary-700:focus {
@@ -22292,6 +23018,10 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsl(57, 29%, 53%);
   }
 
+  .xl\:focus\:text-tertiary-600:focus {
+    color: hsl(57, 29%, 43%);
+  }
+
   .xl\:focus\:text-tertiary-700:focus {
     color: hsla(56, 40%, 35%, 1);
   }
@@ -22304,8 +23034,12 @@ body:not(.home) .header .logo-wrapper figcaption.subtitle {
     color: hsla(32, 65%, 59%, 1);
   }
 
+  .xl\:focus\:text-quaternary-600:focus {
+    color: hsla(32, 66%, 49%, 1);
+  }
+
   .xl\:focus\:text-quaternary-700:focus {
-    color: hsla(32, 46%, 45%, 1);
+    color: hsla(32, 66%, 45%, 1);
   }
 
   .xl\:focus\:text-quaternary:focus {
