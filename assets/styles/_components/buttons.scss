@@ -34,7 +34,6 @@
                     background: map-deep-get($colors, $name, 700);
                 }
 
-                border-bottom-right-radius: 7px;
             }
 
             @include transition;
@@ -44,6 +43,14 @@
     &::after {
         content: '>';
         margin-left: 0.25rem;
+                        
+        @include transition;
+    }
+
+    &:hover {
+        &::after {
+            margin-left: 0.5rem;
+        }
     }
 
 
