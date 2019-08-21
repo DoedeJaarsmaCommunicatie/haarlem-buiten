@@ -2,6 +2,54 @@
     position: relative;
     cursor: pointer;
     padding: 0.7rem 1rem;
+    text-transform: uppercase;
+}
+
+.btn.bare {
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    @each $name, $map in $colors {
+        &.#{$name} {
+            color: map-deep-get($colors, $name, 700);
+            background: transparent;
+            border-color: map-deep-get($colors, 'grey', 'default');
+            border-width: 1px;
+            border-style: solid;
+
+            &::before {
+                position: absolute;
+                bottom: 0.5rem;
+                left: 1rem;
+                right: 1rem;
+                height: 3px;
+                content: ' ';
+                background: map-deep-get($colors, $name, 500);
+                
+                @include transition;
+            }
+
+            &:hover {
+                &::before {
+                    background: map-deep-get($colors, $name, 700);
+                }
+
+                border-bottom-right-radius: 7px;
+            }
+
+            @include transition;
+        }
+    }
+
+    &::after {
+        content: '>';
+        margin-left: 0.25rem;
+    }
+
+
+}
+
+.btn.arrowed {
     letter-spacing: 3px;
 
     @each $name, $map in $colors {
@@ -116,5 +164,4 @@
 
         @include transition;
     }
-
 }

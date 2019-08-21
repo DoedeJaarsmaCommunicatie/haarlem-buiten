@@ -1,22 +1,22 @@
 $primary: (
-    500: theme('colors.primary.default'),
-    600: theme('colors.primary.600'),
-    700: theme('colors.primary.700')
+    500: hsla(194, 26%, 60%, 1),
+    600: hsla(194, 27%, 55%, 1),
+    700: hsla(193, 28%, 41%, 1),
 );
 $secondary: (
-    500: theme('colors.secondary.default'),
-    600: theme('colors.secondary.600'),
-    700: theme('colors.secondary.700')
+    500: hsla(355, 26%, 55%, 1),
+    600: hsla(355, 27%, 45%, 1),
+    700: hsla(354, 34%, 38%, 1),
 );
 $tertiary: (
-    500: theme('colors.tertiary.default'),
-    600: theme('colors.tertiary.600'),
-    700: theme('colors.tertiary.700')
+    500: hsla(57, 29%, 53%, 1),
+    600: hsla(57, 29%, 43%, 1),
+    700: hsla(56, 40%, 35%, 1),
 );
 $quaternary: (
-    500: theme('colors.quaternary.default'),
-    600: theme('colors.quaternary.600'),
-    700: theme('colors.quaternary.700')
+    500: hsla(32, 65%, 59%, 1),
+    600: hsla(32, 66%, 49%, 1),
+    700: hsla(32, 66%, 45%, 1),
 );
 
 $colors: (
@@ -24,7 +24,7 @@ $colors: (
         default: map-get($primary, 500),
         500: map-get($primary, 500),
         600: map-get($primary, 600),
-        700: map-get($primary, 700)
+        700: map-get($primary, 700),
     ),
     "secondary": (
         default: map-get($secondary, 500),
@@ -45,15 +45,19 @@ $colors: (
         700: map-get($quaternary, 700),
     ),
     "white": (
-        default: theme('colors.white.default'),
-        500: theme('colors.white.default')
+        default: hsl(0, 0%, 100%),
+        500: hsla(0, 0%, 100%, 1),
+        600: hsla(0, 0%, 95%,  1),
+        700: hsla(0, 0%, 90%,  1),
     ),
     "black": (
-        default: theme('colors.black.default'),
-        light: theme('colors.black.light')
+        default: hsl(0, 0%, 0%),
+        500: hsl(0, 0%, 0%),
+        600: hsla(0, 0%, 5%, 1),
+        700: hsla(0, 10%, 10%, 1),
     ),
     "grey": (
-        default: theme('colors.grey.default'),
+        default: hsla(0, 0%, 65%, 1),
     )
 );
 
@@ -69,13 +73,13 @@ $default-font-weight: 400 !default;
 $default-font-style: normal !default;
 
 $default-font: (
-    family: 'Source Sans Pro',
+    family: 'PT Sans',
     weight: $default-font-weight,
     style: normal
 );
 
 $title-font: (
-    family: 'Georgia',
+    family: 'PT Sans',
     weight: $default-font-weight,
     style: italic,
     size: 34px
@@ -86,7 +90,7 @@ $title-font: (
 $skew-degrees: -15deg;
 
 $menu-font: (
-    family: 'Source Sans Pro',
+    family: 'PT Sans',
     weight: 700,
     style: $default-font-style,
     size: 20px,
