@@ -73,13 +73,13 @@ $default-font-weight: 400 !default;
 $default-font-style: normal !default;
 
 $default-font: (
-    family: 'PT Sans',
+    family: 'PT Serif',
     weight: $default-font-weight,
     style: normal
 );
 
 $title-font: (
-    family: 'PT Sans',
+    family: 'PT Serif',
     weight: $default-font-weight,
     style: italic,
     size: 34px
@@ -90,7 +90,7 @@ $title-font: (
 $skew-degrees: -15deg;
 
 $menu-font: (
-    family: 'PT Sans',
+    family: 'PT Serif',
     weight: 700,
     style: $default-font-style,
     size: 20px,

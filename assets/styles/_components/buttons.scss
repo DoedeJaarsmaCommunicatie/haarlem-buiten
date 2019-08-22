@@ -52,8 +52,6 @@
             margin-left: 0.5rem;
         }
     }
-
-
 }
 
 .btn.arrowed {
@@ -131,44 +129,50 @@
 }
 
 #submit-button {
-    color: theme('colors.white.default');
-    background: map-deep-get($colors, 'quaternary', 'default');
-    text-transform: uppercase;
-    letter-spacing: 3px;
     position: relative;
-    border-radius: 0;
     cursor: pointer;
+    padding: 0.7rem 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: map-deep-get($colors, 'black', 700);
+    background: map-deep-get($colors, 'white', 'default');
+    border-color: map-deep-get($colors, 'grey', 'default');
+    border-width: 1px;
+    border-style: solid;
 
-    &:not(.no-border) {
-        border-color: map-deep-get($colors, 'quaternary', 600);
+    &::before {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 1rem;
+        right: 1rem;
+        height: 3px;
+        content: ' ';
+        background: map-deep-get($colors, 'black', 500);
+        
+        @include transition;
     }
 
-    &:not(.no-animation):not(.no-border) {
-        &:hover {
-            color: map-deep-get($colors, 'white', 'default');
-            border-right-color: map-deep-get($colors, 'quaternary', 700);
-
+    &:hover {
+        &::before {
+            background: map-deep-get($colors, 'black', 700);
         }
 
-        @include transition;
     }
 
     @include transition;
-
-    &:not(.no-border) {
-        border-right-width: 45px;
-        border-right-style: solid;
-    }
+        
 
     &::after {
-        position: absolute;
-        right: -33px;
-        top: 53%;
-        transform: translateY(-50%);
-        content: $arrow;
-        width: 23px;
-        height: 23px;
-
+        content: '>';
+        margin-left: 0.25rem;
+                        
         @include transition;
+    }
+
+    &:hover {
+        &::after {
+            margin-left: 0.5rem;
+        }
     }
 }
