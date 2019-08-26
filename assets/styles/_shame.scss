@@ -1,0 +1,53 @@
+html p,
+html ul {
+  line-height: 1.5;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header .container.mx-auto {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.elementor-widget:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.elementor-widget-container .elementor-heading-title {
+  margin-bottom: 1.5rem;
+}
+
+.label-left .nf-field-label {
+  text-align: left !important;
+}
+
+.nf-form-fields-required {
+  margin-bottom: 1rem;
+}
+
+html .elementor h1, html .elementor h2 {
+  font-size: 34px;
+}
+
+html p,
+html ul,
+html form {
+  font-size: 15px;
+}
+
+.elementor-button#submit-button {
+  padding:1rem 1rem;
+}
+
+.elementor-button#submit-button::before {
+  bottom:0.6rem;
+  height:2px !important;
+}
+
+.elementor-button#submit-button::after {
+  font-family: 'PT Serif';
+  font-weight: 700;
+}
