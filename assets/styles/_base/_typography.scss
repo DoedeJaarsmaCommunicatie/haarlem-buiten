@@ -50,9 +50,7 @@ ul:not(.navMenu-submenu) {
             content: '-';
             color: map-deep-get($colors, 'primary', 700);
             position: absolute;
-            top: 50%;
             left: -0.5rem;
-            transform: translateY(-50%);
         }
     }
 }
