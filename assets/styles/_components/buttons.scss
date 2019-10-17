@@ -18,15 +18,7 @@
             border-style: solid;
 
             &::before {
-                position: absolute;
-                bottom: 0.5rem;
-                left: 1rem;
-                right: 1rem;
-                height: 3px;
-                content: ' ';
                 background: map-deep-get($colors, $name, 500);
-                
-                @include transition;
             }
 
             &:hover {
@@ -40,11 +32,27 @@
         }
     }
 
-    &::after {
+    &:not(.no-underline) {
+        &::before {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 1rem;
+            right: 1rem;
+            height: 3px;
+            content: ' ';
+
+            @include transition;
+        }
+    }
+
+    &:not(.no-arrow) {
+
+        &::after {
         content: '>';
         margin-left: 0.25rem;
-                        
+
         @include transition;
+        }
     }
 
     &:hover {
@@ -149,7 +157,7 @@
         height: 3px;
         content: ' ';
         background: map-deep-get($colors, 'black', 500);
-        
+
         @include transition;
     }
 
@@ -161,12 +169,12 @@
     }
 
     @include transition;
-        
+
 
     &::after {
         content: '>';
         margin-left: 0.25rem;
-                        
+
         @include transition;
     }
 

@@ -9,6 +9,8 @@ return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'App\\Controllers\\Customizer\\General\\Customizer' => $baseDir . '/src/Controllers/Customizer/Customizer.php',
     'App\\Controllers\\Meta\\KavelController' => $baseDir . '/src/Controllers/Meta/KavelController.php',
+    'App\\Controllers\\Meta\\TypeController' => $baseDir . '/src/Controllers/Meta/TypeController.php',
+    'App\\Post' => $baseDir . '/src/Post.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/src/Providers/AppServiceProvider.php',
     'App\\Providers\\MenuServiceProvider' => $baseDir . '/src/Providers/MenuServiceProvider.php',
     'App\\Providers\\PostTypeServiceProvider' => $baseDir . '/src/Providers/PostTypeServiceProvider.php',

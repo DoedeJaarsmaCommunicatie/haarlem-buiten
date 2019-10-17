@@ -2,6 +2,8 @@
 namespace App\Providers;
 
 use App\Controllers\Meta\KavelController;
+use App\Controllers\Meta\LocationController;
+use App\Controllers\Meta\TypeController;
 
 class AppServiceProvider
 {
@@ -31,5 +33,6 @@ class AppServiceProvider
         );
         
         new KavelController();
+        new TypeController();
     }
 }

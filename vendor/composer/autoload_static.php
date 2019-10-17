@@ -110,6 +110,8 @@ class ComposerStaticInitfa5370b2447c60de2fa76f6b0dd3081b
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'App\\Controllers\\Customizer\\General\\Customizer' => __DIR__ . '/../..' . '/src/Controllers/Customizer/Customizer.php',
         'App\\Controllers\\Meta\\KavelController' => __DIR__ . '/../..' . '/src/Controllers/Meta/KavelController.php',
+        'App\\Controllers\\Meta\\TypeController' => __DIR__ . '/../..' . '/src/Controllers/Meta/TypeController.php',
+        'App\\Post' => __DIR__ . '/../..' . '/src/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/src/Providers/AppServiceProvider.php',
         'App\\Providers\\MenuServiceProvider' => __DIR__ . '/../..' . '/src/Providers/MenuServiceProvider.php',
         'App\\Providers\\PostTypeServiceProvider' => __DIR__ . '/../..' . '/src/Providers/PostTypeServiceProvider.php',

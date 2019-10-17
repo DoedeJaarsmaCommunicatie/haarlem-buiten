@@ -1,6 +1,7 @@
 <?php
 namespace App\Providers;
 use PostTypes\PostType;
+use PostTypes\Taxonomy;
 
 class PostTypeServiceProvider
 {
@@ -11,12 +12,21 @@ class PostTypeServiceProvider
 
     private function register()
     {
-        $kavel = new PostType('kavel');
+        $bouwnummer = new PostType('bouwnummer');
+        $bouwnummer->icon('dashicons-admin-multisite');
+        $bouwnummer->options([
+            'rewrite'   => [
+                'slug'  => 'bouwnummer'
+            ]
+        ]);
+        $bouwnummer->taxonomy('type');
+        $bouwnummer->register();
         
-        $kavel->icon('dashicons-admin-multisite');
-
-        $kavel->taxonomy('type');
-
-        $kavel->register();
+        $loc = new Taxonomy('type');
+        $loc->options([
+            'hierarchical'  => true
+        ]);
+        
+        $loc->register();
     }
 }
