@@ -10,7 +10,7 @@
                     <img src="{{ header_image.drawing.src('large') }}" alt="{{ header_image.drawing.alt }}" />
                 </figure>
                 <figure class="hidden lg:block lg:w-1/3">
-                    <img src="{{ header_image.animals.src }}" alt="{{ header_image.animals.alt }}" />
+                    <img src="{{ header_image.animals.src }}" alt="{{ header_image.animals.alt }}" style="height: 400px;" />
                 </figure>
             </aside>
         </section>
@@ -18,12 +18,14 @@
         {{ include('components/disclaimer.twig') }}
 
         <section class="lg:flex content mt-6">
-            <div class="lg:w-1/3">
-                {% if type_side is same as ('Water') %}
-                    <h3>{{ impression_title }} aan het water</h3>
-                {% else %}
-                    <h3>{{ impression_title }} in de polder</h3>
-                {% endif %}
+            <div class="lg:w-1/3 lg:mr-6">
+                <h3 class="titel-{{ impression_title|lower }} mb-6">
+                    {% if type_side is same as ('Water') %}
+                            {{ impression_title }} aan het water
+                    {% else %}
+                        {{ impression_title }} in de polder
+                    {% endif %}
+                </h3>
 
                 <ul>
                     <li>Bouwnummer {{ post.title }}</li>
@@ -45,35 +47,36 @@
                 </figure>
             </div>
         </section>
-        <hr class="hb-sep mt-6">
+
+        {{ include('components/separator.twig') }}
 
         <section class="lg:flex mt-6">
-            <div class="lg:w-1/3 lg:pr-6">
+            <div class="lg:w-1/3 lg:pr-6 hidden lg:block">
                 <figure>
-                    <img src="{{ image_theme.src('large') }}" alt="{{ image_theme.alt }}">
+                    <img src="{{ image_theme.src('large') }}" alt="{{ image_theme.alt }}" style="height: 500px;">
                 </figure>
             </div>
-            <div class="lg:w-1/3 lg:pr-6">
+            <div class="lg:w-1/3 lg:pr-6 hidden lg:block">
                 <figure>
                     <img src="{{ image_impression.src('large') }}" alt="{{ image_impression.alt }}">
                 </figure>
             </div>
             <div class="lg:w-1/3 content">
-                <h3>Kavel</h3>
+                <h3 class="mb-6">Kavel</h3>
                 <figure>
                     <img src="{{ plot_map.src('large') }}" alt="{{ plot_map.alt }}">
                 </figure>
             </div>
         </section>
 
-        <hr class="hb-sep mt-6">
+        {{ include('components/separator.twig') }}
 
         <section class="content my-6">
             <h3>Plattegrond Type {{ type_denom }}</h3>
             {% if post.get_field('is_mirrored') %}
                 <small>* De daadwerkelijke indeling van deze woning is gespiegeld.</small>
             {% endif %}
-            <figure class="block">
+            <figure class="block mt-6">
                 <img src="{{ floor_plan.src }}" alt="{{ floor_plan.alt }}" />
             </figure>
         </section>
