@@ -16,7 +16,8 @@ if ($context['post']->post_type === 'bouwnummer') {
     $type = explode(' ', $term);
     
     $context['type_side'] = $type[0];
-    $context['type_denom'] = $type[1];
+    unset($type[0]);
+    $context['type_denom'] = implode(' ', $type);
     
     $context['header_image'] = [
         'drawing' => new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_drawing')),

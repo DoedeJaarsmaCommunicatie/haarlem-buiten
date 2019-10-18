@@ -18,7 +18,6 @@ class KavelController
 		   ->add_fields(
 		   	[
 		   	    Field::make('checkbox', 'is_mirrored', __('Is gespiegeld')),
-		   	    Field::make('checkbox', 'is_cornered', __('Is hoekwoning')),
 		   		
 		   		Field::make('text', 'plot_area', __('Kaveloppervlakte'))
 			        ->set_attribute('placeholder', __('ca. 166')),
