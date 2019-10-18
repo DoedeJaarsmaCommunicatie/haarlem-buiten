@@ -71,11 +71,7 @@
         <section class="content my-6">
             <h3>Plattegrond Type {{ type_denom }}</h3>
             {% if post.get_field('is_mirrored') %}
-                <small>* Deze plattegrond is voor type {{ type_denom }}, deze is dus nog niet gespiegeld.</small>
-            {% endif %}
-
-            {% if post.get_field('is_cornered') %}
-                <small>* Deze plattegrond is voor type {{ type_denom }}, de hoekwoning kan hiervan afwijken</small>
+                <small>* De daadwerkelijke indeling van deze woning is gespiegeld.</small>
             {% endif %}
             <figure class="block">
                 <img src="{{ floor_plan.src }}" alt="{{ floor_plan.alt }}" />
