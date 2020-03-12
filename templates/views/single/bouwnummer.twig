@@ -29,8 +29,8 @@
 
                 <ul>
                     <li>Bouwnummer {{ post.title }}</li>
-                    <li>Woonoppervlakte ca. {{ living_area }}m<sup>2</sup></li>
-                    <li>Kaveloppervlakte ca. {{ post.get_field('plot_area') }}m<sup>2</sup></li>
+                    <li>Woonoppervlakte ca. {{ living_area }} m<sup>2</sup></li>
+                    <li>Kaveloppervlakte ca. {{ post.get_field('plot_area') }} m<sup>2</sup></li>
                     {% if extra_attributes %}
                         <li>{{ extra_attributes }}</li>
                     {% endif %}
