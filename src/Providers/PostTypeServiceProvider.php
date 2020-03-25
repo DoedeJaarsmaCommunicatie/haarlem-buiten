@@ -17,16 +17,21 @@ class PostTypeServiceProvider
         $bouwnummer->options([
             'rewrite'   => [
                 'slug'  => 'bouwnummer'
-            ]
+            ],
+	        'supports' => [
+	        	'title',
+		        'editor',
+		        'thumbnail'
+	        ]
         ]);
         $bouwnummer->taxonomy('type');
         $bouwnummer->register();
-        
+
         $loc = new Taxonomy('type');
         $loc->options([
             'hierarchical'  => true
         ]);
-        
+
         $loc->register();
     }
 }

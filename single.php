@@ -1,35 +1,45 @@
 <?php
 
+use App\Post;
+use Timber\Image;
 use Timber\Timber;
 
 $context = Timber::get_context();
 
-$context ['post'] = new \App\Post();
+$context ['post'] = new Post();
 
 if ($context['post']->post_type === 'bouwnummer') {
     $term = $context['post']->terms('type')[0];
     $context['term'] = $term;
-    $context['plot_map'] = new \Timber\Image($context['post']->get_field('plot_map'));
-    $context['plot_overview'] = new \Timber\Image($context['post']->get_field('plot_overview'));
-    
-    
+    $context['plot_map'] = new Image($context['post']->get_field('plot_map'));
+    $context['plot_overview'] = new Image($context['post']->get_field('plot_overview'));
+
+
     $type = explode(' ', $term);
-    
+
     $context['type_side'] = $type[0];
     unset($type[0]);
     $context['type_denom'] = implode(' ', $type);
-    
+
+    if ($context['post']->thumbnail()) {
+	    $image_header = $context['post']->thumbnail();
+    } else {
+    	$image_header = new Image(carbon_get_term_meta($term->term_id, 'image_drawing'));
+    }
+
     $context['header_image'] = [
-        'drawing' => new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_drawing')),
-        'animals' => new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_header'))
+        'drawing' => $image_header,
+        'animals' => new Image(carbon_get_term_meta($term->term_id, 'image_header'))
     ];
+
+    $context['impression_interior'] = new Image(carbon_get_term_meta($term->term_id, 'image_interior'));
     $context['impression_title'] = carbon_get_term_meta($term->term_id, 'impression_title');
     $context['living_area'] = carbon_get_term_meta($term->term_id, 'living_area');
     $context['extra_attributes'] = carbon_get_term_meta($term->term_id, 'extra_attributes');
-    
-    $context['floor_plan'] = new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_plan'));
-    $context['image_theme'] = new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_theme'));
-    $context['image_impression'] = new \Timber\Image(carbon_get_term_meta($term->term_id, 'image_impression'));
+
+    $context['floor_plan'] = new Image(carbon_get_term_meta($term->term_id, 'image_plan'));
+    $context['image_theme'] = new Image(carbon_get_term_meta($term->term_id, 'image_theme'));
+    $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
 }
 
 return Timber::render(
