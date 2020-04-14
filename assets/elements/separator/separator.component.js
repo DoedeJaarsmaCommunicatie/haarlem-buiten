@@ -7,7 +7,7 @@ export default  {
 	spaceTop: property(false),
 	spaceBottom: property(false),
 	render: ({ spaceTop, spaceBottom }) => html`
-<hr class="${spaceBottom? 'space-bottom' : ''}${spaceTop ? 'space-top' : ''}">
+<hr class="${spaceBottom? 'space-bottom' : ''} ${spaceTop ? 'space-top' : ''}">
 <style>
 hr {
 	border: none;
@@ -25,6 +25,13 @@ hr.space-top {
 
 hr.space-bottom {
 	margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+hr {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
 }
 </style>
 `
