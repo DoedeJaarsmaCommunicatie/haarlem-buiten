@@ -8,12 +8,25 @@ $context = Timber::get_context();
 
 $context ['post'] = new Post();
 
+$templates = [
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.twig',
+	'views/single/' . $context[ 'post' ]->id . '.twig',
+	'views/single/' . $context[ 'post' ]->slug . '.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '.twig',
+	'views/single.twig',
+	'views/index.twig'
+];
+
 if ($context['post']->post_type === 'bouwnummer') {
     $term = $context['post']->terms('type')[0];
     $context['term'] = $term;
     $context['plot_map'] = new Image($context['post']->get_field('plot_map'));
     $context['plot_overview'] = new Image($context['post']->get_field('plot_overview'));
-
+	$context['price_info'] = [
+		'price' => $context['post']->get_field('price'),
+		'info' => $context['post']->get_field('price_extra')
+	];
 
     $type = explode(' ', $term);
 
@@ -40,17 +53,8 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['floor_plan'] = new Image(carbon_get_term_meta($term->term_id, 'image_plan'));
     $context['image_theme'] = new Image(carbon_get_term_meta($term->term_id, 'image_theme'));
     $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
+    $context['downloads'] = carbon_get_term_meta($term->term_id, 'type_download');
 }
-
-$templates = [
-	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.twig',
-	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.twig',
-	'views/single/' . $context[ 'post' ]->id . '.twig',
-	'views/single/' . $context[ 'post' ]->slug . '.twig',
-	'views/single/' . $context[ 'post' ]->post_type . '.twig',
-	'views/single.twig',
-	'views/index.twig'
-];
 
 return Timber::render(
 	$templates,

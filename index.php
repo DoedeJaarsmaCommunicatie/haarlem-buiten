@@ -1,8 +1,11 @@
 <?php
 
-$context = \Timber\Timber::get_context();
+use Timber\Post;
+use Timber\Timber;
 
-$context ['post'] = new \Timber\Post();
+$context = Timber::get_context();
+
+$context ['post'] = new Post();
 
 $templates = [
 	'views/index.twig'
@@ -12,7 +15,7 @@ if (post_password_required($context['post']->id)) {
 	array_unshift($templates, 'views/single/password.html.twig');
 }
 
-return \Timber\Timber::render(
+return Timber::render(
     $templates,
     $context
 );
