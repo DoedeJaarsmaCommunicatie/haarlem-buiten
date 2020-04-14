@@ -42,15 +42,17 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
 }
 
+$templates = [
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.twig',
+	'views/single/' . $context[ 'post' ]->id . '.twig',
+	'views/single/' . $context[ 'post' ]->slug . '.twig',
+	'views/single/' . $context[ 'post' ]->post_type . '.twig',
+	'views/single.twig',
+	'views/index.twig'
+];
+
 return Timber::render(
-	[
-		'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->id . '.twig',
-		'views/single/' . $context[ 'post' ]->post_type . '/' . $context[ 'post' ]->slug . '.twig',
-		'views/single/' . $context[ 'post' ]->id . '.twig',
-		'views/single/' . $context[ 'post' ]->slug . '.twig',
-		'views/single/' . $context[ 'post' ]->post_type . '.twig',
-		'views/single.twig',
-		'views/index.twig'
-	],
+	$templates,
 	$context
 );
