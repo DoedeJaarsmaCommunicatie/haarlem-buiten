@@ -74,6 +74,7 @@
 
 @media screen and (max-width: 516px) {
     .navMenu {
+        min-width: min-content;
         position: fixed;
         top: 1rem;
         left: 1rem;

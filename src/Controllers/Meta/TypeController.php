@@ -27,17 +27,26 @@ class TypeController
                     Field::make('text', 'impression_title', __('Titel (type)'))
                         ->set_attribute('placeholder', __('Zoals: Vrijstaande woning')),
 
-                    Field::make('image', 'image_drawing', __('Exterieur impressie')),
-                    Field::make('image', 'image_interior', __('Interieur impressie')),
-
-                    Field::make('image', 'image_header', __('Header afbeelding')),
-
-                    Field::make('image', 'image_impression', __('Sfeer afbeelding')),
-
-                    Field::make('image', 'image_theme', __('Afbeelding thema')),
-
-                    Field::make('image', 'image_plan', __('Plattegrond')),
+	                Field::make('media_gallery', 'type_download', __('Downloads'))
+	                    ->set_duplicates_allowed(false)
                 ]
             );
+
+        Container::make('term_meta', __('Type afbeeldingen'))
+	        ->where('term_taxonomy', '=', 'type')
+	        ->add_fields(
+	        	[
+			        Field::make('image', 'image_drawing', __('Exterieur impressie')),
+			        Field::make('image', 'image_interior', __('Interieur impressie')),
+
+			        Field::make('image', 'image_header', __('Header afbeelding')),
+
+			        Field::make('image', 'image_impression', __('Sfeer afbeelding')),
+
+			        Field::make('image', 'image_theme', __('Afbeelding thema')),
+
+			        Field::make('image', 'image_plan', __('Plattegrond')),
+		        ]
+	        );
     }
 }
