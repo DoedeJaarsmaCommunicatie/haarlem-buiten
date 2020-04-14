@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        'hb-p': '2.5%',
+      }
+    },
     colors: {
       black: {
         default: 'hsl(0, 0%, 0%)',

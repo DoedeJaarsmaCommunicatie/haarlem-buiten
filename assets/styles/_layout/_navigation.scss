@@ -48,7 +48,7 @@
         text-transform: map-get($menu-font, 'transform');
         color: map-deep-get($colors, 'black', 'default');
         display: inline-block;
-        letter-spacing: 3px;
+        //letter-spacing: 3px;
 
         position: relative;
 

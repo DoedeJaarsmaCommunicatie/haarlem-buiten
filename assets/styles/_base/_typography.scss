@@ -42,7 +42,7 @@ p a,
 }
 
 
-ul:not(.navMenu-submenu) {
+ul {
     & li:not(.ninja-forms-field):not(.nf-previous-item):not(.nf-next-item) {
         padding-left: 1rem;
         margin-left: 1rem;

@@ -40,6 +40,12 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['floor_plan'] = new Image(carbon_get_term_meta($term->term_id, 'image_plan'));
     $context['image_theme'] = new Image(carbon_get_term_meta($term->term_id, 'image_theme'));
     $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
+
+    if ($image_plan = $context['post']->get_field('custom_image_plan')) {
+	    $context['custom_image_plan'] = new Image($image_plan);
+    } else {
+    	$context['custom_image_plan'] = false;
+    }
 }
 
 return Timber::render(
