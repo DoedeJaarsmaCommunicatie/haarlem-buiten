@@ -732,9 +732,9 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@fortawesome/fontawesome-free@^5.10.1":
+"@fortawesome/fontawesome-free@^5.13.0":
   version "5.13.0"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-free/-/5.13.0/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
   integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
 
 "@fullhuman/postcss-purgecss@^1.2.0":
@@ -952,6 +952,11 @@
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
+
+"@webcomponents/webcomponentsjs@^2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.4.3.tgz#384f4f6d54563ba465fb4df21fe89e78a76fc530"
+  integrity sha512-cV4+sAmshf8ysU2USutrSRYQkJzEYKHsRCGa0CkMElGpG5747VHtkfsW3NdVIBV/m2MDKXTDydT4lkrysH7IFA==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
@@ -3636,6 +3641,11 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+hybrids@^4.1.7:
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/hybrids/-/hybrids-4.1.7.tgz#1390be1374b88cb4edd58c01d478c54062074f0a"
+  integrity sha512-8l/FdI7zpOON62yO+LcDcZuh2790RwR2XcYlp2lTA6D1VthUjnWQ5gu4kzkcJd8+u+8mTQXH6Vzv7lic8ie3vg==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
