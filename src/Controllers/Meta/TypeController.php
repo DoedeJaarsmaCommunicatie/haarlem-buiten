@@ -20,14 +20,14 @@ class TypeController
             ->add_fields(
                 [
                     Field::make('text', 'living_area', __('Woonoppervlak'))
-                        ->set_attribute('placeholder', __('ca. 175')),
+                        ->set_attribute('placeholder', __('175')),
 
                     Field::make('text', 'storage_area', __('Bergingoppervlak'))
-	                    ->set_attribute('placeholder', __('ca. 12'))
+	                    ->set_attribute('placeholder', __('12'))
 	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
 
                     Field::make('text', 'storage_attic_area', __('Berging zolder oppervlak'))
-	                    ->set_attribute('placeholder','ca. 24')
+	                    ->set_attribute('placeholder','24')
 	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
 
                     Field::make('text', 'extra_attributes', __('Extra informatie')),
