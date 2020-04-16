@@ -19,14 +19,15 @@ class TypeController
             ->where('term_taxonomy', '=', 'type')
             ->add_fields(
                 [
-                    Field::make('text', 'living_area', __('Woonoppervlak'))
+                	Field::make('text', 'total_area', __('Woningoppervlakte totaal')),
+                    Field::make('text', 'living_area', __('Oppervlakte wonen'))
                         ->set_attribute('placeholder', __('175')),
 
-                    Field::make('text', 'storage_area', __('Bergingoppervlak'))
+                    Field::make('text', 'storage_area', __('Oppervlakte berging'))
 	                    ->set_attribute('placeholder', __('12'))
 	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
 
-                    Field::make('text', 'storage_attic_area', __('Berging zolder oppervlak'))
+                    Field::make('text', 'storage_attic_area', __('Oppervlakte bergzolder'))
 	                    ->set_attribute('placeholder','24')
 	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
 

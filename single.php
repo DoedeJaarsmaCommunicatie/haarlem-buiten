@@ -56,6 +56,7 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['downloads'] = carbon_get_term_meta($term->term_id, 'type_download');
 	$context['storage_area'] = carbon_get_term_meta($term->term_id, 'storage_area');
 	$context['storage_attic_area'] = carbon_get_term_meta($term->term_id, 'storage_attic_area');
+	$context['total_area'] = carbon_get_term_meta($term->term_id, 'total_area');
 
 
     if ($image_plan = $context['post']->get_field('custom_image_plan')) {
