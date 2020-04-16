@@ -64,6 +64,10 @@ if ($context['post']->post_type === 'bouwnummer') {
     } else {
     	$context['custom_image_plan'] = false;
     }
+
+    if ($context['post']->get_field('toggle_new_layout')) {
+    	array_unshift($templates, 'views/bouwnummer-full.html.twig');
+    }
 }
 
 return Timber::render(
