@@ -53,10 +53,14 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['floor_plan'] = new Image(carbon_get_term_meta($term->term_id, 'image_plan'));
     $context['image_theme'] = new Image(carbon_get_term_meta($term->term_id, 'image_theme'));
     $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
-    $context['downloads'] = carbon_get_term_meta($term->term_id, 'type_download');
 	$context['storage_area'] = carbon_get_term_meta($term->term_id, 'storage_area');
 	$context['storage_attic_area'] = carbon_get_term_meta($term->term_id, 'storage_attic_area');
 	$context['total_area'] = carbon_get_term_meta($term->term_id, 'total_area');
+
+    $context['download'] = [
+    	'file' => carbon_get_term_meta($term->term_id, 'type_download'),
+	    'title' => carbon_get_term_meta($term->term_id, 'type_download_title')
+    ];
 
 
     if ($image_plan = $context['post']->get_field('custom_image_plan')) {
@@ -66,7 +70,7 @@ if ($context['post']->post_type === 'bouwnummer') {
     }
 
     if ($context['post']->get_field('toggle_new_layout')) {
-    	array_unshift($templates, 'views/bouwnummer-full.html.twig');
+    	array_unshift($templates, 'views/single/bouwnummer-full.html.twig');
     }
 }
 

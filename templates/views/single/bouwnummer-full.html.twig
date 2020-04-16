@@ -47,7 +47,15 @@
                         {% if price_info.info %}<br>{{ price_info.info }}{% endif %}
                     </li>
                 {% endif %}
-                {% if  %}
+                {% if download.file %}
+                    <li>
+                        <a href="{{ fn('wp_get_attachment_url', download.file) }}"
+                           download
+                           title="Download {{ download.title }}">
+                            Download {{ download.title }}
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
 
             <p class="content mt-6">

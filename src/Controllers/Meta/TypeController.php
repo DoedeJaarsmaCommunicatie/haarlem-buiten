@@ -34,12 +34,17 @@ class TypeController
                     Field::make('text', 'extra_attributes', __('Extra informatie')),
 
                     Field::make('text', 'impression_title', __('Titel (type)'))
-                        ->set_attribute('placeholder', __('Zoals: Vrijstaande woning')),
-
-	                Field::make('media_gallery', 'type_download', __('Downloads'))
-	                    ->set_duplicates_allowed(false)
+                        ->set_attribute('placeholder', __('Zoals: Vrijstaande woning'))
                 ]
             );
+
+        Container::make('term_meta', __('Downloads'))
+	        ->where('term_taxonomy', '=' ,'type')
+	        ->add_fields([
+		        Field::make('file', 'type_download', __('Download')),
+
+		        Field::make('text', 'type_download_title', __('Download title'))
+	        ]);
 
         Container::make('term_meta', __('Type afbeeldingen'))
 	        ->where('term_taxonomy', '=', 'type')
