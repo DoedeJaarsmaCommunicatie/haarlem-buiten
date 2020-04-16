@@ -54,6 +54,9 @@ if ($context['post']->post_type === 'bouwnummer') {
     $context['image_theme'] = new Image(carbon_get_term_meta($term->term_id, 'image_theme'));
     $context['image_impression'] = new Image(carbon_get_term_meta($term->term_id, 'image_impression'));
     $context['downloads'] = carbon_get_term_meta($term->term_id, 'type_download');
+	$context['storage_area'] = carbon_get_term_meta($term->term_id, 'storage_area');
+	$context['storage_attic_area'] = carbon_get_term_meta($term->term_id, 'storage_attic_area');
+
 
     if ($image_plan = $context['post']->get_field('custom_image_plan')) {
 	    $context['custom_image_plan'] = new Image($image_plan);

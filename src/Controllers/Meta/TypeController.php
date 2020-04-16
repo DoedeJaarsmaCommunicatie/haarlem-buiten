@@ -22,6 +22,14 @@ class TypeController
                     Field::make('text', 'living_area', __('Woonoppervlak'))
                         ->set_attribute('placeholder', __('ca. 175')),
 
+                    Field::make('text', 'storage_area', __('Bergingoppervlak'))
+	                    ->set_attribute('placeholder', __('ca. 12'))
+	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
+
+                    Field::make('text', 'storage_attic_area', __('Berging zolder oppervlak'))
+	                    ->set_attribute('placeholder','ca. 24')
+	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
+
                     Field::make('text', 'extra_attributes', __('Extra informatie')),
 
                     Field::make('text', 'impression_title', __('Titel (type)'))
