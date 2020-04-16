@@ -31,6 +31,10 @@ class TypeController
 	                    ->set_attribute('placeholder','24')
 	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
 
+                    Field::make('text', 'storage_external_area', __('Oppervlakte externe bergruimte'))
+	                    ->set_attribute('placeholder','24')
+	                    ->set_help_text('Dit wordt alleen getoond als dit veld is ingevuld'),
+
                     Field::make('text', 'extra_attributes', __('Extra informatie')),
 
                     Field::make('text', 'impression_title', __('Titel (type)'))

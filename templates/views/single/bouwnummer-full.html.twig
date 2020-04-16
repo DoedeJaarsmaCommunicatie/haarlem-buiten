@@ -32,11 +32,12 @@
             <ul>
                 <li>Bouwnummer {{ post.title }}</li>
                 <li>
-                    Woningoppervlakte totaal ca. {{ total_area }} m<sup>2</sup>
+                    Gebruiksoppervlakte totaal ca. {{ total_area }} m<sup>2</sup>
                     <ul>
                         <li>Oppervlakte wonen ca. {{ living_area }} m<sup>2</sup></li>
-                        {% if storage_area %}<li>Oppervlakte berging ca. {{ storage_area }} m<sup>2</sup></li>{% endif %}
-                        {% if storage_attic_area %}<li>Oppervlakte bergzolder ca. {{ storage_attic_area }} m<sup>2</sup></li>{% endif %}
+                        {% if storage_area %}<li>Oppervlakte overige inpandige ruimte ca. {{ storage_area }} m<sup>2</sup></li>{% endif %}
+                        {% if storage_attic_area %}<li>Oppervlakte overige inpandige ruimte ca. {{ storage_attic_area }} m<sup>2</sup></li>{% endif %}
+                        {% if storage_attic_area %}<li>Oppervlakte overige externe bergruimte ca. {{ storage_attic_area }} m<sup>2</sup></li>{% endif %}
                     </ul>
                 </li>
                 <li>Kaveloppervlakte ca. {{ post.get_field('plot_area') }} m<sup>2</sup></li>
