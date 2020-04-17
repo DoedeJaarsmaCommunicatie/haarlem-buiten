@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif|Source+Sans+Pro&display=swap');
 
 .hb {
+  display: block;
+  background-size: cover;
   &.menu {
     height: 1.5rem;
     width: 1.5rem;
-    content: $menu;
+    background-image: $menu;
   }
 
   &.close, &.cross {
     height: 1rem;
     width: 1rem;
-    content: $cross;
+    background-image: $cross;
   }
 
   &.chevron {
     height: 1rem;
-    content: $chevron;
+    background-image: $chevron;
   }
 }
