@@ -1,33 +1,33 @@
-{% extends'layouts/app.twig' %}
+{% extends 'layouts/app.twig' %}
 
 {% block content %}
-<div class="container mx-auto px-4 lg:px-0">
-    <section class="content">
-        <h1 class="bouwnummer-header-title">
-            Bouwnummer {{ post.title }}:
-            {% if type_side is same as ('Water') %}
-                {{ impression_title }} aan het water
-            {% else %}
-                {{ impression_title }} in de polder
-            {% endif %}
-        </h1>
-        <aside class="lg:flex">
-            <figure class="lg:w-2/3">
-                <img src="{{ header_image.drawing.src('large') }}" alt="{{ header_image.drawing.alt }}" />
-            </figure>
-            <figure class="hidden lg:flex lg:w-1/3">
-                <img src="{{ header_image.animals.src }}" alt="{{ header_image.animals.alt }}" style="height: 400px; margin: auto;" />
-            </figure>
-        </aside>
-    </section>
+    <div class="container mx-auto px-8 lg:px-0 lg:mt-6">
+        <section class="content my-16">
+            <h1 class="bouwnummer-header-title" style="margin-bottom: 48px;">
+                Bouwnummer {{ post.title }}:
+                {% if type_side is same as ('Water') %}
+                    {{ impression_title }} aan het water
+                {% else %}
+                    {{ impression_title }} in de polder
+                {% endif %}
+            </h1>
+            <aside class="lg:flex">
+                <figure class="lg:w-2/3">
+                    <img src="{{ header_image.drawing.src('large') }}" alt="{{ header_image.drawing.alt }}" />
+                </figure>
+                <figure class="hidden lg:flex lg:w-1/3">
+                    <img src="{{ header_image.animals.src }}" alt="{{ header_image.animals.alt }}" style="height: 400px; margin: auto;" />
+                </figure>
+            </aside>
+        </section>
 
-    {{ include('components/separator.twig') }}
+        {{ include('components/separator.twig') }}
 
-    <section class="lg:flex content mt-6">
-        <div class="lg:w-1/3 lg:mr-6">
-            <h3 class="titel-{{ impression_title|lower }} mb-6">
-                {{ type_side }}kant type {{ type_denom }} {{ post.get_field('is_mirrored') ? 'sp' : '' }}
-            </h3>
+        <section class="lg:flex content my-12">
+            <div class="lg:w-1/3 lg:pr-16 mb-12 lg:mb-0">
+                <h3 class="titel-{{ impression_title|lower }} mb-6">
+                    {{ type_side }}kant type {{ type_denom }} {{ post.get_field('is_mirrored') ? 'sp' : '' }}
+                </h3>
 
             <ul>
                 <li>Bouwnummer {{ post.title }}</li>
@@ -77,51 +77,55 @@
 
     {{ include('components/separator.twig') }}
 
-    <section class="lg:flex mt-6">
-        <div class="lg:w-1/3 lg:pr-6 hidden lg:block">
-            <figure>
-                <img src="{{ image_theme.src('large') }}" alt="{{ image_theme.alt }}" style="height: 500px;">
-            </figure>
-        </div>
-        <div class="lg:w-1/3 lg:mr-6 hidden lg:block">
-            <figure>
-                <img src="{{ image_impression.src('large') }}" alt="{{ image_impression.alt }}">
-            </figure>
-        </div>
-        <div class="lg:w-1/3 content">
-            <h3 class="mb-6">Kavel</h3>
-            <figure>
-                <img src="{{ plot_map.src('large') }}" alt="{{ plot_map.alt }}">
-            </figure>
-        </div>
-    </section>
+        <section class="lg:flex my-12">
+            <div class="lg:w-1/3 lg:pr-6 hidden lg:block">
+                <figure>
+                    <img src="{{ image_theme.src('large') }}" alt="{{ image_theme.alt }}" style="height: 500px;">
+                </figure>
+            </div>
+            <div class="lg:w-1/3 lg:pr-12 hidden lg:block">
+                <figure>
+                    <img src="{{ image_impression.src('large') }}" alt="{{ image_impression.alt }}">
+                </figure>
+            </div>
+            <div class="lg:w-1/3 content">
+                <h3 class="mb-6">Kavel</h3>
+                <figure>
+                    <img src="{{ plot_map.src('large') }}" alt="{{ plot_map.alt }}">
+                </figure>
+            </div>
+        </section>
 
     {{ include('components/separator.twig') }}
 
-    <section class="content my-6">
-        <h3>Plattegrond Type {{ type_denom }}</h3>
-        {% if post.get_field('is_mirrored') %}
-            <small>* De daadwerkelijke indeling van deze woning is gespiegeld.</small>
-        {% endif %}
-        <figure class="block mt-6">
-            <img src="{{ floor_plan.src }}" alt="{{ floor_plan.alt }}" />
-        </figure>
-    </section>
+        <section class="content my-12">
+            <h3>Plattegrond Type {{ type_denom }}</h3>
+            {% if not custom_image_plan and post.get_field('is_mirrored')  %}
+                <small>* De daadwerkelijke indeling van deze woning is gespiegeld.</small>
+            {% endif %}
+            <figure class="block lg:mt-12">
+                {% if custom_image_plan %}
+                    <img src="{{ custom_image_plan.src }}" alt="{{ custom_image_plan.alt }}" />
+                {% else %}
+                    <img src="{{ floor_plan.src }}" alt="{{ floor_plan.alt }}" />
+                {% endif %}
+            </figure>
+        </section>
 
     {{ include('components/separator.twig') }}
 
-    <section class="content my-6">
-        <figure class="lg:flex">
-            <img src="{{ plot_overview.src('large') }}" alt="{{ plot_overview.alt }}" class="mx-auto">
-        </figure>
-    </section>
+        <section class="content my-12">
+            <figure class="lg:flex">
+                <img src="{{ plot_overview.src('large') }}" alt="{{ plot_overview.alt }}" class="mx-auto">
+            </figure>
+        </section>
 
     {{ include('components/disclaimer.twig') }}
 
-    <section class="lg:flex mt-6">
-        <a class="btn bare no-arrow text-center black block no-underline mx-auto" href="/woningen/">
-            Terug naar woningaanbod
-        </a>
-    </section>
-</div>
+        <section class="lg:flex my-12">
+            <a class="btn bare text-center no-arrow black block no-underline mx-auto" href="/woningen/">
+                Terug naar woningaanbod
+            </a>
+        </section>
+    </div>
 {% endblock %}
