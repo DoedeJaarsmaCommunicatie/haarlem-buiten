@@ -71,9 +71,7 @@ if ($context['post']->post_type === 'bouwnummer') {
     	$context['custom_image_plan'] = false;
     }
 
-    if ($context['post']->get_field('toggle_new_layout')) {
-    	array_unshift($templates, 'views/single/bouwnummer-full.html.twig');
-    }
+	array_unshift($templates, 'views/single/bouwnummer-full.html.twig');
 }
 
 return Timber::render(

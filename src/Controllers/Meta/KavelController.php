@@ -17,7 +17,6 @@ class KavelController
 		   ->where('post_type', '=', 'bouwnummer')
 		   ->add_fields(
 		   	[
-		   		Field::make('checkbox', 'toggle_new_layout'),
 		   	    Field::make('checkbox', 'is_mirrored', __('Is gespiegeld')),
 		   		Field::make('image', 'custom_image_plan', __('Plattegrond')),
 
