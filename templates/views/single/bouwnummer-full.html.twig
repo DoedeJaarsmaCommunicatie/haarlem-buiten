@@ -57,6 +57,19 @@
                         </a>
                     </li>
                 {% endif %}
+                {% if post.get_field('is_sold') %}
+                    <li>
+                        Status: Verkocht
+                    </li>
+                {% elseif post.get_field('is_under_reservation') %}
+                    <li>
+                        Status: Verkocht onder voorbehoud
+                    </li>
+                {% elseif post.get_field('is_under_option') %}
+                    <li>
+                        Status: optie
+                    </li>
+                {% endif %}
             </ul>
 
             <p class="content mt-6">

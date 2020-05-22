@@ -26,7 +26,10 @@ class KavelController
 
                 Field::make('image', 'plot_map', __('Kavel plattegrond')),
 
-                Field::make('image', 'plot_overview', __('Kavel overzicht'))
+                Field::make('image', 'plot_overview', __('Kavel overzicht')),
+			    Field::make('checkbox', 'is_sold', 'Is verkocht'),
+			    Field::make('checkbox', 'is_under_reservation', 'Onder voorbehoud'),
+			    Field::make('checkbox', 'is_under_option', 'Is onder optie'),
 		    ]
 		   );
 
